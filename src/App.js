@@ -1,12 +1,13 @@
 import React from "react";
 import "./App.css";
-import Header from "./components/Header";
-import Topics from "./components/Topics";
-import ArticlesList from "./components/ArticlesList";
+import Header from "./components/HeaderComponents/Header";
+import Topics from "./components/TopicComponents/Topics";
+import ArticlesList from "./components/ArticlesComponents/ArticlesList";
 import { Router } from "@reach/router";
-import SortArticles from "./components/SortArticles";
-import OrderArticles from "./components/OrderArticles";
-import NavBar from "./components/NavBar";
+import SortArticles from "./components/ArticlesComponents/SortArticles";
+import OrderArticles from "./components/ArticlesComponents/OrderArticles";
+import NavBar from "./components/HeaderComponents/NavBar";
+import ArticlesByTopic from "./components/TopicComponents/ArticlesByTopic";
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
         <NavBar />
         <Router>
           <Topics path="/topics" />
+        </Router>
+        <Router>
+          <ArticlesByTopic path="/topics/:topic" />
         </Router>
         <Router>
           <OrderArticles path="/" />

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import * as api from "./api";
+import * as api from "../api";
 
 export default class NavBarTopics extends Component {
   state = {
-    topics: ["coding", "world", "love", "war"]
+    topics: []
   };
   render() {
     const { topics } = this.state;
@@ -12,7 +12,7 @@ export default class NavBarTopics extends Component {
       <div>
         {topics.map(topic => {
           return (
-            <Link key={topic} to={`/topics/${topic.slug}`}>
+            <Link key={topic.slug} to={`/topics/${topic.slug}`}>
               <h2>{topic.slug}</h2>
               <p>{topic.description}</p>
             </Link>
