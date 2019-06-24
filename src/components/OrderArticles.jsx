@@ -8,7 +8,7 @@ export default function OrderArticles() {
       Order Articles:
       <select>
         {orderBy.map(order => {
-          return <option>{order}</option>;
+          return <option key={order}>{order}</option>;
         })}
       </select>
     </div>

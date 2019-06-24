@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
+import * as api from "./api";
 
 export default class NavBarTopics extends Component {
   state = {
@@ -11,12 +12,18 @@ export default class NavBarTopics extends Component {
       <div>
         {topics.map(topic => {
           return (
-            <Link key={topic} to={`/topics/${topic}`}>
-              <button>{topic}</button>
+            <Link key={topic} to={`/topics/${topic.slug}`}>
+              <h2>{topic.slug}</h2>
+              <p>{topic.description}</p>
             </Link>
           );
         })}
       </div>
     );
+  }
+  componentDidMount() {
+    api.getTopics().then(topics => {
+      this.setState({ topics });
+    });
   }
 }

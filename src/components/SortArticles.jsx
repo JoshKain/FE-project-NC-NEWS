@@ -9,7 +9,7 @@ export default class SortArticles extends Component {
         Sort Articles By:
         <select>
           {sortBy.map(sort => {
-            return <option>{sort}</option>;
+            return <option key={sort}>{sort}</option>;
           })}
         </select>
       </div>
