@@ -12,11 +12,12 @@ export default class ArticlesList extends Component {
     return (
       <div>
         {articles.map(article => (
-          <Link key={article.article_id} to={`/article/${article.article_id}`}>
+          <Link key={article.article_id} to={`/articles/${article.article_id}`}>
             <h4>{article.title}</h4>
             <p>Author: {article.author}</p>
-            <p>{article.created_at}</p>
+            <p>{article.topic}</p>
             <p>{article.votes}</p>
+            <p>{article.created_at}</p>
           </Link>
         ))}
       </div>

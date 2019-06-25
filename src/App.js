@@ -8,6 +8,7 @@ import SortArticles from "./components/ArticlesComponents/SortArticles";
 import OrderArticles from "./components/ArticlesComponents/OrderArticles";
 import NavBar from "./components/HeaderComponents/NavBar";
 import ArticlesByTopic from "./components/TopicComponents/ArticlesByTopic";
+import ArticleCard from "./components/ArticlesComponents/ArticleCard";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         </Router>
         <Router>
           <ArticlesByTopic path="/topics/:topic" />
+        </Router>
+        <Router>
+          <ArticleCard path="/articles/:article_id" />
         </Router>
         <Router>
           <OrderArticles path="/" />

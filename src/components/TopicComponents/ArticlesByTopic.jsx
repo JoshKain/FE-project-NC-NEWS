@@ -7,11 +7,12 @@ export default class ArticlesByTopic extends Component {
   render() {
     const { articles } = this.state;
     const { topic } = this.props;
+    console.log(this.props);
     return (
       <div>
         <h1>{`${topic} articles`}</h1>
         {articles.map(article => (
-          <Link key={article.article_id} to={`/article/${article.article_id}`}>
+          <Link key={article.article_id} to={`/articles/${article.article_id}`}>
             <h4>{article.title}</h4>
             <p>Author: {article.author}</p>
             <p>{article.created_at}</p>
