@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../api";
 import "./ArticlePage.css";
 import moment from "moment";
+import CommentsList from "../CommentList/CommentsList";
 
 moment().format();
 
@@ -20,6 +21,9 @@ export default class ArticlePage extends Component {
             <p>{body}</p>
             <p> Votes: {votes}</p>
           </ul>
+          <div>
+            <CommentsList id={this.props.article_id} />
+          </div>
         </div>
       )
     );

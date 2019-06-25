@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import * as api from "../api";
-import SortArticles from "../ArticlePage/ArticlesComponents/SortArticles";
-import OrderArticles from "../ArticlePage/ArticlesComponents/OrderArticles";
-import ArticleCards from "../ArticlePage/ArticlesComponents/ArticleCards";
+import SortArticles from "../ArticlesComponents/SortArticles";
+import OrderArticles from "../ArticlesComponents/OrderArticles";
+import ArticleCards from "../ArticlesComponents/ArticleCards";
 
 export default class ArticlesByTopic extends Component {
   state = { articles: [] };
