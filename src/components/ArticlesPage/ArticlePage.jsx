@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import * as api from "../api";
-import "./ArticleCard.css";
+import "./ArticlePage.css";
 import moment from "moment";
+
 moment().format();
 
-export default class ArticleCard extends Component {
+export default class ArticlePage extends Component {
   state = { article: [] };
   render() {
     let timeAgo;

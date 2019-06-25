@@ -1,24 +1,23 @@
 import React, { Component } from "react";
 import * as api from "../api";
-import { Link } from "@reach/router";
+import SortArticles from "../ArticlesPage/ArticlesComponents/SortArticles";
+import OrderArticles from "../ArticlesPage/ArticlesComponents/OrderArticles";
+import ArticleCards from "../ArticlesPage/ArticlesComponents/ArticleCards";
 
 export default class ArticlesByTopic extends Component {
   state = { articles: [] };
   render() {
     const { articles } = this.state;
     const { topic } = this.props;
-    console.log(this.props);
     return (
       <div>
+        <SortArticles />
+        <OrderArticles />
         <h1>{`${topic} articles`}</h1>
-        {articles.map(article => (
-          <Link key={article.article_id} to={`/articles/${article.article_id}`}>
-            <h4>{article.title}</h4>
-            <p>Author: {article.author}</p>
-            <p>{article.created_at}</p>
-            <p>{article.votes}</p>
-          </Link>
-        ))}
+        {articles.map(article => {
+          return ArticleCards(article);
+        })}
+        ;
       </div>
     );
   }

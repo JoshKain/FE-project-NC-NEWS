@@ -2,13 +2,11 @@ import React from "react";
 import "./App.css";
 import Header from "./components/HeaderComponents/Header";
 import Topics from "./components/TopicComponents/Topics";
-import ArticlesList from "./components/ArticlesComponents/ArticlesList";
+import ArticlesList from "./components/ArticlesPage/ArticlesComponents/ArticlesList";
 import { Router } from "@reach/router";
-import SortArticles from "./components/ArticlesComponents/SortArticles";
-import OrderArticles from "./components/ArticlesComponents/OrderArticles";
 import NavBar from "./components/HeaderComponents/NavBar";
 import ArticlesByTopic from "./components/TopicComponents/ArticlesByTopic";
-import ArticleCard from "./components/ArticlesComponents/ArticleCard";
+import ArticleCard from "./components/ArticlesPage/ArticlePage";
 
 function App() {
   return (
@@ -24,12 +22,6 @@ function App() {
         </Router>
         <Router>
           <ArticleCard path="/articles/:article_id" />
-        </Router>
-        <Router>
-          <OrderArticles path="/" />
-        </Router>
-        <Router>
-          <SortArticles path="/" />
         </Router>
         <Router>
           <ArticlesList path="/" />
