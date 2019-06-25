@@ -8,15 +8,16 @@ moment().format();
 export default class ArticlePage extends Component {
   state = { article: [] };
   render() {
-    let timeAgo;
-    const { title, author, votes, created_at } = this.state.article;
+    const { title, author, votes, created_at, body } = this.state.article;
     return (
       this.state.article && (
         <div className="single-article-container">
           <ul id="single-article-item">
             <h3 id="article-title">{title}</h3>
-            <p>Posted by: {author}</p>
-            <p>Posted :{(timeAgo = moment(created_at).fromNow())} </p>
+            <p>
+              Posted by: {author} {moment(created_at).fromNow()}{" "}
+            </p>
+            <p>{body}</p>
             <p> Votes: {votes}</p>
           </ul>
         </div>
