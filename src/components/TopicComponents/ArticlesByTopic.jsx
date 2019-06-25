@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import * as api from "../api";
-import SortArticles from "../ArticlesComponents/SortArticles";
-import OrderArticles from "../ArticlesComponents/OrderArticles";
+
 import ArticleCards from "../ArticlesComponents/ArticleCards";
+import SortingOrderingBar from "../ArticlesComponents/SortingOrderingBar";
 
 export default class ArticlesByTopic extends Component {
   state = { articles: [] };
@@ -11,11 +11,10 @@ export default class ArticlesByTopic extends Component {
     const { topic } = this.props;
     return (
       <div>
-        <SortArticles />
-        <OrderArticles />
+        <SortingOrderingBar />
         <h1>{`${topic} articles`}</h1>
         {articles.map(article => {
-          return ArticleCards(article);
+          return <ArticleCards article={article} key={article.article_id} />;
         })}
         ;
       </div>

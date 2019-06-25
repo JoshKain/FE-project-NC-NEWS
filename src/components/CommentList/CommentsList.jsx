@@ -9,7 +9,6 @@ export default class CommentsList extends Component {
     return (
       <div>
         <h3>Comments</h3>
-
         {comments.map(comment => {
           return <CommentCard key={comment.comment_id} comment={comment} />;
         })}
