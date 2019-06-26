@@ -1,7 +1,7 @@
 .sort-bar {
   display: flex;
   flex-flow: row nowrap;
-  border: 2px solid #e74c3c;
+  border: 2px solid coral;
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
@@ -14,15 +14,12 @@
 
 .sort-button {
   display: flex;
-  flex-grow: 1;
-  background-color: rgb(58, 183, 224);
-  text-decoration-color: black;
 }
 
 .each-article {
   display: flex;
   flex-flow: row nowrap;
-  border: 2px solid #e74c3c;
+  border: 2px solid coral;
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
@@ -31,5 +28,6 @@
   position: relative;
   align-self: center;
   flex-grow: 1;
-  background-color: turquoise;
+  background-color: coral;
+  text-align: center;
 }

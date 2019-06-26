@@ -7,6 +7,8 @@ import { Router } from "@reach/router";
 import NavBar from "./components/HeaderComponents/NavBar";
 import ArticlesByTopic from "./components/TopicComponents/ArticlesByTopic";
 import ArticlePage from "./components/ArticlePage/ArticlePage";
+import LoginButton from "./components/Login/LoginButton";
+
 import LoginPage from "./components/Login/LoginPage";
 
 function App() {
@@ -14,8 +16,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="app-container">
-          <LoginPage path="/login" />
-          <Header className="header" path="/" />
+          <LoginButton />
+          <Header path="/" />
         </div>
         <NavBar />
         <Router>
@@ -23,6 +25,7 @@ function App() {
           <Topics path="/topics" />
           <ArticlesByTopic path="/topics/:topic" />
           <ArticlePage path="/articles/:article_id" />
+          <LoginPage path="/login" />
         </Router>
       </header>
     </div>

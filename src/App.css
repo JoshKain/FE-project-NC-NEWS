@@ -1,5 +1,13 @@
+.App {
+  border: 2px solid coral;
+  margin: 1px;
+  padding: 1px;
+  border-radius: 20px;
+  background-color: #22252c;
+}
+
 .app-container {
-  border: 2px solid #e74c3c;
+  border: 2px solid coral;
   margin: 10px;
   padding: 10px;
   border-radius: 20px;

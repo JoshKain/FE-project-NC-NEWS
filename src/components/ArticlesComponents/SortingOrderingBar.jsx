@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./ArticlesList.css";
+import { Button } from "@material-ui/core";
 export default class SortingOrderingBar extends Component {
   state = {
     sortByArr: ["sort_by", "created_at", "comment_count", "votes"],
@@ -40,12 +41,14 @@ export default class SortingOrderingBar extends Component {
           </select>
         </div>
 
-        <button
+        <Button
+          variant="contained"
+          color="primary"
           className="sort-button"
           onClick={e => this.props.handleSort(orderBy, sortBy)}
         >
           Sort
-        </button>
+        </Button>
       </div>
     );
   }

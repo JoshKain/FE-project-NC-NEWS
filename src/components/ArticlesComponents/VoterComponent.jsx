@@ -44,14 +44,15 @@ export default class VoterComponent extends Component {
       }));
     });
   };
-  handleDislike = increment => {
+
+  handleDislike = decrement => {
     const { article_id } = this.props;
     this.setState(({ DisLikeChange }) => ({
-      DisLikeChange: DisLikeChange + increment
+      DisLikeChange: DisLikeChange + decrement
     }));
-    api.patchArticleVotes({ article_id, increment }).catch(err => {
+    api.patchArticleVotes({ article_id, decrement }).catch(err => {
       this.setState(({ DisLikeChange }) => ({
-        DisLikeChange: DisLikeChange + increment
+        DisLikeChange: DisLikeChange + decrement
       }));
     });
   };
