@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import "./ArticlesList.css";
 export default class SortingOrderingBar extends Component {
   state = {
-    sortByArr: ["created_at", "comment_count", "votes"],
-    sortBy: "created_at",
-    orderByArr: ["Order", "asc", "desc"],
-    orderBy: "Order"
+    sortByArr: ["sort_by", "created_at", "comment_count", "votes"],
+    sortBy: null,
+    orderByArr: ["Order_By", "asc", "desc"],
+    orderBy: null
   };
 
   storeUserSort = event => {
@@ -24,7 +24,7 @@ export default class SortingOrderingBar extends Component {
       <div className="sort-bar">
         <div>
           Sort Articles By:
-          <select onChange={this.storeUserSort} value={sortBy}>
+          <select onChange={this.storeUserSort}>
             {sortByArr.map(sort => {
               return <option key={sort}>{sort}</option>;
             })}
@@ -33,7 +33,7 @@ export default class SortingOrderingBar extends Component {
         <div className="order">
           {" "}
           Order Articles:
-          <select onChange={this.storeUserOrder} value={orderBy}>
+          <select onChange={this.storeUserOrder}>
             {orderByArr.map(order => {
               return <option key={order}>{order}</option>;
             })}

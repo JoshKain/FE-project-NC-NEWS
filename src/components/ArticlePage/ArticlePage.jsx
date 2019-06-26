@@ -14,12 +14,16 @@ export default class ArticlePage extends Component {
       this.state.article && (
         <div className="single-article-container">
           <ul id="container">
-            <h3 id="article-title">{title}</h3>
-            <p>
-              Posted by: {author} {moment(created_at).fromNow()}{" "}
-            </p>
+            <div>
+              <h3 id="article-title">{title}</h3>
+              <p>
+                Posted by: {author} {moment(created_at).fromNow()}{" "}
+              </p>
+            </div>
             <p>{body}</p>
             <p> Votes: {votes}</p>
+            <button onClick={() => this.handleVote(1)}>Vote Up</button>
+            <button onClick={() => this.handleVote(-1)}>Vote Down</button>
           </ul>
           <div>
             <CommentsList id={this.props.article_id} />
