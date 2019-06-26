@@ -30,7 +30,7 @@ export default class ArticlePage extends Component {
   }
   componentDidMount() {
     const { article_id } = this.props;
-    api.getArticleById(article_id).then(article => {
+    api.getArticleById({ article_id }).then(article => {
       this.setState({ article });
     });
   }

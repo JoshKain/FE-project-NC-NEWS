@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "@reach/router";
+import "./Header.css";
 
 export default function NavBar() {
   return (
-    <div>
+    <div className="navbar">
       <nav>
         <Link to="/">Home</Link>
         <Link to="/users">Users</Link>

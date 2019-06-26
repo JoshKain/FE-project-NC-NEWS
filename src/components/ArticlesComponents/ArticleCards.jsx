@@ -11,10 +11,11 @@ export default class ArticleCards extends Component {
       author,
       created_at,
       topic,
-      votes
+      votes,
+      comment_count
     } = this.props.article;
     return (
-      <div className="article-card">
+      <div className="each-article">
         <Link key={article_id} to={`/articles/${article_id}`}>
           <h4>{title}</h4>
           <p> Topic :{topic}</p>
@@ -23,6 +24,7 @@ export default class ArticleCards extends Component {
               Posted by: {author} {moment(created_at).fromNow()}{" "}
             </p>
             <p> Votes :{votes}</p>
+            <p>Comment Count: {comment_count}</p>
           </div>
         </Link>
       </div>

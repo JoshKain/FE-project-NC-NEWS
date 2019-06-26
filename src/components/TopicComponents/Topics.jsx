@@ -22,8 +22,10 @@ export default class NavBarTopics extends Component {
     );
   }
   componentDidMount() {
-    api.getTopics().then(topics => {
-      this.setState({ topics });
-    });
+    if (this.state.topics) {
+      api.getTopics().then(topics => {
+        this.setState({ topics });
+      });
+    }
   }
 }

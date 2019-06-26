@@ -7,21 +7,19 @@ import SortingOrderingBar from "./SortingOrderingBar";
 export default class ArticlesList extends Component {
   state = {
     articles: [],
-    order: "",
-    sort: ""
+    order: null,
+    sort: null
   };
 
-  handleSubmit = () => {};
+  handleSort = (orderBy, sortBy) => {
+    this.setState({ order: orderBy, sort: sortBy });
+  };
   render() {
-    const { articles, order, sort } = this.state;
-
+    const { articles } = this.state;
+    console.log(this.state);
     return (
       <div>
-        <SortingOrderingBar
-          handleSubmit={this.handleSubmit}
-          order={order}
-          sort={sort}
-        />
+        <SortingOrderingBar handleSort={this.handleSort} />
         <div>
           {articles.map(article => {
             return <ArticleCards key={article.article_id} article={article} />;
@@ -31,8 +29,19 @@ export default class ArticlesList extends Component {
     );
   }
   componentDidMount() {
-    api.getArticles().then(articles => {
+    api.getArticles({}).then(articles => {
       this.setState({ articles });
     });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { order, sort } = this.state;
+    if (
+      this.state.sort !== prevState.sort ||
+      this.state.order !== prevState.order
+    )
+      api.getArticles({ sort, order }).then(articles => {
+        this.setState({ articles });
+      });
   }
 }

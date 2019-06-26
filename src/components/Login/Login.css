@@ -1,0 +1,5 @@
+.login-container {
+  display: flex;
+  flex-flow: row-reverse nowrap;
+  align-items: flex-end;
+}
