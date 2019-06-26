@@ -14,14 +14,16 @@ export default class ArticleCards extends Component {
       votes
     } = this.props.article;
     return (
-      <div>
+      <div className="article-card">
         <Link key={article_id} to={`/articles/${article_id}`}>
           <h4>{title}</h4>
-          <p>
-            Posted by: {author} {moment(created_at).fromNow()}{" "}
-          </p>
           <p> Topic :{topic}</p>
-          <p> Votes :{votes}</p>
+          <div className="article-card-bottom">
+            <p>
+              Posted by: {author} {moment(created_at).fromNow()}{" "}
+            </p>
+            <p> Votes :{votes}</p>
+          </div>
         </Link>
       </div>
     );

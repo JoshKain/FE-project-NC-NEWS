@@ -6,14 +6,22 @@ import SortingOrderingBar from "./SortingOrderingBar";
 
 export default class ArticlesList extends Component {
   state = {
-    articles: []
+    articles: [],
+    order: "",
+    sort: ""
   };
+
+  handleSubmit = () => {};
   render() {
-    const { articles } = this.state;
+    const { articles, order, sort } = this.state;
 
     return (
       <div>
-        <SortingOrderingBar />
+        <SortingOrderingBar
+          handleSubmit={this.handleSubmit}
+          order={order}
+          sort={sort}
+        />
         <div>
           {articles.map(article => {
             return <ArticleCards key={article.article_id} article={article} />;

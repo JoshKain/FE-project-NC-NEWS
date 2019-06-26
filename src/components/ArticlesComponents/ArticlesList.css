@@ -1,5 +1,20 @@
-.sorting-articles {
+.sort-bar {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-around;
+  border: 2px solid #e74c3c;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.8s;
+  position: relative;
+  align-self: center;
+  flex-grow: 1;
+}
+
+.sort-button {
+  display: flex;
+  flex-grow: 1;
+  background-color: rgb(58, 183, 224);
+  text-decoration-color: black;
 }

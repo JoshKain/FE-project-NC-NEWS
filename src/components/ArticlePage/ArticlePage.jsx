@@ -13,7 +13,7 @@ export default class ArticlePage extends Component {
     return (
       this.state.article && (
         <div className="single-article-container">
-          <ul id="single-article-item">
+          <ul id="container">
             <h3 id="article-title">{title}</h3>
             <p>
               Posted by: {author} {moment(created_at).fromNow()}{" "}
