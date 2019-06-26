@@ -26,7 +26,16 @@ export const getArticleById = ({ article_id }) => {
 
 export const getCommentsForArticle = article_id => {
   return request.get(`/articles/${article_id}/comments`).then(({ data }) => {
-    console.log(data);
     return data.comments;
   });
+};
+
+export const patchArticleVotes = ({ article_id, increment }) => {
+  return request
+    .patch(`/articles/${article_id}`, {
+      inc_votes: increment
+    })
+    .then(({ data }) => {
+      return data.article;
+    });
 };

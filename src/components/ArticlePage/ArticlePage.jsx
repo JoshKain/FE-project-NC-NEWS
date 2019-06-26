@@ -3,13 +3,22 @@ import * as api from "../api";
 import "./ArticlePage.css";
 import moment from "moment";
 import CommentsList from "../CommentList/CommentsList";
+import VoterComponent from "../ArticlesComponents/VoterComponent";
 
 moment().format();
 
 export default class ArticlePage extends Component {
   state = { article: [] };
+
   render() {
-    const { title, author, votes, created_at, body } = this.state.article;
+    const {
+      title,
+      author,
+      votes,
+      created_at,
+      body,
+      article_id
+    } = this.state.article;
     return (
       this.state.article && (
         <div className="single-article-container">
@@ -21,9 +30,9 @@ export default class ArticlePage extends Component {
               </p>
             </div>
             <p>{body}</p>
-            <p> Votes: {votes}</p>
-            <button onClick={() => this.handleVote(1)}>Vote Up</button>
-            <button onClick={() => this.handleVote(-1)}>Vote Down</button>
+            <div className="Voter">
+              <VoterComponent votes={votes} article_id={article_id} />
+            </div>
           </ul>
           <div>
             <CommentsList id={this.props.article_id} />

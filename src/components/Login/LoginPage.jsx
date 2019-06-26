@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import "./Login.css";
+import { Link } from "@reach/router";
+import { Button } from "@material-ui/core";
+
 export default class Login extends Component {
   state = {
     username: ""
@@ -14,14 +17,15 @@ export default class Login extends Component {
   render() {
     return (
       <div className="login-container">
-        <form>
-          <input
-            onChange={this.handleChange}
-            type="text"
-            placeholder="username"
-          />
-          <button onClick={this.handleSubmit}>Login</button>
-        </form>
+        <Link to="/login">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.handleSubmit}
+          >
+            Login
+          </Button>
+        </Link>
       </div>
     );
   }

@@ -7,14 +7,14 @@ import { Router } from "@reach/router";
 import NavBar from "./components/HeaderComponents/NavBar";
 import ArticlesByTopic from "./components/TopicComponents/ArticlesByTopic";
 import ArticlePage from "./components/ArticlePage/ArticlePage";
-import Login from "./components/Login/Login";
+import LoginPage from "./components/Login/LoginPage";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <div className="app-container">
-          <Login />
+          <LoginPage path="/login" />
           <Header className="header" path="/" />
         </div>
         <NavBar />
