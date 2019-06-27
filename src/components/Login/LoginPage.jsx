@@ -10,7 +10,13 @@ export default class LoginPage extends Component {
     return (
       <div>
         {users.map(user => {
-          return <User user={user} key={uuidv4()} />;
+          return (
+            <User
+              user={user}
+              handleChangeUser={this.props.handleChangeUser}
+              key={uuidv4()}
+            />
+          );
         })}
       </div>
     );
