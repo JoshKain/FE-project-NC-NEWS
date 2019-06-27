@@ -15,8 +15,8 @@ export default class ArticleCards extends Component {
       comment_count
     } = this.props.article;
     return (
-      <div className="each-article">
-        <Link key={article_id} to={`/articles/${article_id}`}>
+      <Link key={article_id} to={`/articles/${article_id}`}>
+        <div className="each-article-container">
           <h4>{title}</h4>
           <p> Topic :{topic}</p>
           <div className="article-card-bottom">
@@ -26,8 +26,8 @@ export default class ArticleCards extends Component {
             <p> Votes :{votes}</p>
             <p>Comment Count: {comment_count}</p>
           </div>
-        </Link>
-      </div>
+        </div>
+      </Link>
     );
   }
 }

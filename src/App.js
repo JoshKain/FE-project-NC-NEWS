@@ -26,7 +26,7 @@ export default class App extends Component {
   render() {
     const { username } = this.state.loginUser;
     return (
-      <div>
+      <div className="full-inclosure">
         <header className="App-header">
           <div className="app-container">
             <LoginButton />

@@ -9,7 +9,7 @@ export default class LoginButton extends Component {
       <div className="login-container">
         <Link to="/login">
           <Button variant="contained" color="primary">
-            Login As Different User
+            Login
           </Button>
         </Link>
       </div>

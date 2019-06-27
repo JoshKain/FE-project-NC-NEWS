@@ -19,9 +19,9 @@
 .comment-border {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
-  align-content: space-around;
+
   margin: 5px;
   padding: 5px;
   border: 2px dotted lightblue;

@@ -1,7 +1,7 @@
 .sort-bar {
   display: flex;
   flex-flow: row nowrap;
-  border: 2px solid coral;
+  border: 2px solid black;
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
@@ -12,22 +12,18 @@
   flex-grow: 1;
 }
 
-.sort-button {
+.each-article-container {
+  text-decoration: none;
   display: flex;
-}
-
-.each-article {
-  display: flex;
-  flex-flow: row nowrap;
-  border: 2px solid coral;
-  margin: 10px;
+  flex-flow: column;
+  border: 2px solid black;
+  justify-content: center;
+  margin: 5px;
   padding: 10px;
   border-radius: 10px;
-  cursor: pointer;
-  transition: 0.8s;
-  position: relative;
+  cursor: cursor;
   align-self: center;
   flex-grow: 1;
-  background-color: coral;
+  background-color: white;
   text-align: center;
 }
