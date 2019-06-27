@@ -1,10 +1,18 @@
-.login-container {
+.topic-container {
+  text-decoration: none;
   display: flex;
-  flex-flow: row-reverse nowrap;
-  align-items: flex-end;
+  flex-flow: column;
+  border: 2px solid black;
+  justify-content: center;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: cursor;
+  align-self: center;
+  background-color: white;
 }
 
-.each-user {
+.each-topic-container {
   text-decoration: none;
   display: flex;
   flex-flow: column;
@@ -18,9 +26,4 @@
   background-color: white;
   text-align: center;
   align-items: center;
-}
-
-.users-container {
-  display: flex;
-  flex-flow: row wrap;
 }

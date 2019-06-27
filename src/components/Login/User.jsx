@@ -1,5 +1,6 @@
 import { Button } from "@material-ui/core";
 import React, { Component } from "react";
+import "./Login.css";
 const uuidv5 = require("uuid/v5");
 
 export default class User extends Component {
@@ -7,7 +8,7 @@ export default class User extends Component {
     const { name, username, avatar_url } = this.props.user;
 
     return (
-      <div>
+      <div className="each-user">
         <h1>{name}</h1>
         <img
           src={avatar_url}

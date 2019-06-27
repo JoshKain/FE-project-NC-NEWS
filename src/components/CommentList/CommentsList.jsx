@@ -3,7 +3,8 @@ import * as api from "../api";
 import CommentCard from "./CommentCard";
 
 export default class CommentsList extends Component {
-  state = { comments: [], submit: false };
+  state = { comments: [] };
+
   render() {
     const { comments } = this.state;
 
@@ -28,4 +29,5 @@ export default class CommentsList extends Component {
       this.setState({ comments });
     });
   }
+  componentDidUpdate(prevProps, prevState) {}
 }

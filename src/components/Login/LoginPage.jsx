@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../api";
 import User from "./User";
+import "./Login.css";
 const uuidv4 = require("uuid/v4");
 
 export default class LoginPage extends Component {
@@ -8,7 +9,7 @@ export default class LoginPage extends Component {
   render() {
     const { users } = this.state;
     return (
-      <div>
+      <div className="users-container">
         {users.map(user => {
           return (
             <User
