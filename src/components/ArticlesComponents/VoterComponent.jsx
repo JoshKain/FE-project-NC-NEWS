@@ -20,7 +20,6 @@ export default class VoterComponent extends Component {
         >
           Like
         </Button>
-        <p> Likes: {votes + LikeChange}</p>
         <Button
           variant="contained"
           color="primary"
@@ -29,6 +28,7 @@ export default class VoterComponent extends Component {
         >
           Dislike
         </Button>
+        <p> Likes: {votes + LikeChange}</p>
       </div>
     );
   }

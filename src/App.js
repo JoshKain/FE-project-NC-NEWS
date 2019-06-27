@@ -40,7 +40,10 @@ export default class App extends Component {
             <ArticlesList path="/" />
             <Topics path="/topics" />
             <ArticlesByTopic path="/topics/:topic" />
-            <ArticlePage path="/articles/:article_id" />
+            <ArticlePage
+              path="/articles/:article_id"
+              username={this.state.loginUser.username}
+            />
             <LoginPage path="/login" handleChangeUser={this.handleChangeUser} />
           </Router>
         </header>

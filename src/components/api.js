@@ -40,7 +40,6 @@ export const patchArticleVotes = ({ article_id, increment }) => {
     });
 };
 export const patchCommentVotes = ({ comment_id, increment }) => {
-  console.log(comment_id, increment);
   return request
     .patch(`/comments/${comment_id}`, {
       inc_Votes: increment
@@ -54,4 +53,21 @@ export const getUsers = () => {
   return request.get(`/users`).then(({ data }) => {
     return data.users;
   });
+};
+
+export const postComment = ({ article_id, username, body }) => {
+  return request
+    .post(`/articles/${article_id}/comments`, { username, body })
+    .then(({ data }) => {
+      return data.comment;
+    })
+    .catch(error => console.dir(error));
+};
+
+export const deleteComment = ({ value }) => {
+  console.log(value);
+  return request
+    .delete(`/comments/${value}`)
+    .then(({ data }) => {})
+    .catch(err => console.dir(err));
 };
