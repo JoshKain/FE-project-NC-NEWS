@@ -39,3 +39,19 @@ export const patchArticleVotes = ({ article_id, increment }) => {
       return data.article;
     });
 };
+export const patchCommentVotes = ({ comment_id, increment }) => {
+  console.log(comment_id, increment);
+  return request
+    .patch(`/comments/${comment_id}`, {
+      inc_Votes: increment
+    })
+    .then(({ data }) => {
+      return data.article;
+    });
+};
+
+export const getUsers = () => {
+  return request.get(`/users`).then(({ data }) => {
+    return data.users;
+  });
+};

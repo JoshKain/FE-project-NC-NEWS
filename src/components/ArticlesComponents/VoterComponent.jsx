@@ -5,11 +5,10 @@ import Button from "@material-ui/core/Button";
 
 export default class VoterComponent extends Component {
   state = {
-    LikeChange: 0,
-    DisLikeChange: 0
+    LikeChange: 0
   };
   render() {
-    const { LikeChange, DisLikeChange } = this.state;
+    const { LikeChange } = this.state;
     const { votes } = this.props;
     return (
       <div className="voter-buttons">
@@ -25,35 +24,29 @@ export default class VoterComponent extends Component {
         <Button
           variant="contained"
           color="primary"
-          onClick={() => this.handleDislike(-1)}
-          disabled={DisLikeChange < 0}
+          onClick={() => this.handleLike(-1)}
+          disabled={LikeChange < 0}
         >
           Dislike
         </Button>
-        <p> Dislikes: {votes + DisLikeChange}</p>
       </div>
     );
   }
 
   handleLike = increment => {
-    const { article_id } = this.props;
+    const { article_id, comment_id } = this.props;
     this.setState(({ LikeChange }) => ({ LikeChange: LikeChange + increment }));
-    api.patchArticleVotes({ article_id, increment }).catch(err => {
-      this.setState(({ LikeChange }) => ({
-        LikeChange: LikeChange + increment
-      }));
-    });
-  };
-
-  handleDislike = decrement => {
-    const { article_id } = this.props;
-    this.setState(({ DisLikeChange }) => ({
-      DisLikeChange: DisLikeChange + decrement
-    }));
-    api.patchArticleVotes({ article_id, decrement }).catch(err => {
-      this.setState(({ DisLikeChange }) => ({
-        DisLikeChange: DisLikeChange + decrement
-      }));
-    });
+    if (comment_id && !article_id) {
+      api.patchCommentVotes({ comment_id, increment }).catch(err => {
+        this.setState(({ LikeChange }) => ({
+          LikeChange: LikeChange + increment
+        }));
+      });
+    } else
+      api.patchArticleVotes({ article_id, increment }).catch(err => {
+        this.setState(({ LikeChange }) => ({
+          LikeChange: LikeChange + increment
+        }));
+      });
   };
 }
