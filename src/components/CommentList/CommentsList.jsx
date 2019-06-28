@@ -12,10 +12,20 @@ export default class CommentsList extends Component {
     const commentArr = [...comments];
     this.setState({ comments: [comment, ...commentArr] });
   };
+  deleteComment = ({ value }) => {
+    const { comments } = this.state;
+    const id = Number(value);
+    const newComment = comments.filter(
+      eachComment => eachComment.comment_id !== id
+    );
+
+    this.setState({
+      comments: newComment
+    });
+  };
   render() {
     const { comments, err, isLoading } = this.state;
     const { id } = this.props;
-    console.log(comments);
     if (err) {
       return <Error err={err} />;
     }
@@ -42,6 +52,7 @@ export default class CommentsList extends Component {
               key={comment.comment_id}
               comment={comment}
               username={this.props.username}
+              deleteComment={this.deleteComment}
             />
           );
         })}

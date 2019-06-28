@@ -21,6 +21,9 @@ export default class DeleteButton extends Component {
   }
   handleClick = event => {
     const { value } = event.target;
-    api.deleteComment({ value }).then(comment => {});
+    const { deleteComment } = this.props;
+    api.deleteComment({ value }).then(comment => {
+      deleteComment({ value });
+    });
   };
 }

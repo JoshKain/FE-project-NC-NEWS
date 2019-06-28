@@ -28,6 +28,7 @@ export default class CommentCard extends Component {
             comment_id={comment_id}
             author={author}
             username={this.props.username}
+            deleteComment={this.props.deleteComment}
           />
         </div>
       </div>
