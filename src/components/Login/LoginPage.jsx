@@ -2,12 +2,16 @@ import React, { Component } from "react";
 import * as api from "../api";
 import User from "./User";
 import "./Login.css";
+import Error from "../ErrorComponent/Error";
 const uuidv4 = require("uuid/v4");
 
 export default class LoginPage extends Component {
-  state = { users: [] };
+  state = { users: [], err: null };
   render() {
-    const { users } = this.state;
+    const { users, err } = this.state;
+    if (err) {
+      return <Error err={err} />;
+    }
     return (
       <div className="users-container">
         {users.map(user => {
@@ -23,8 +27,16 @@ export default class LoginPage extends Component {
     );
   }
   componentDidMount() {
-    api.getUsers().then(users => {
-      this.setState({ users });
-    });
+    api
+      .getUsers()
+      .then(users => {
+        this.setState({ users });
+      })
+      .catch(({ response }) => {
+        const errStatus = response.status;
+        const errMessage = response.data;
+        const err = { errStatus, errMessage };
+        this.setState({ err });
+      });
   }
 }

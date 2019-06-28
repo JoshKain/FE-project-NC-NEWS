@@ -5,11 +5,12 @@ import moment from "moment";
 import CommentsList from "../CommentList/CommentsList";
 import VoterComponent from "../ArticlesComponents/VoterComponent";
 import PostCommentComponent from "../CommentList/PostCommentComponent";
+import Error from "../ErrorComponent/Error";
 
 moment().format();
 
 export default class ArticlePage extends Component {
-  state = { article: [], isLoading: false };
+  state = { article: [], isLoading: false, err: null };
 
   render() {
     const {
@@ -20,7 +21,10 @@ export default class ArticlePage extends Component {
       body,
       article_id
     } = this.state.article;
-    const { isLoading } = this.state;
+    const { isLoading, err } = this.state;
+    if (err) {
+      return <Error err={err} />;
+    }
     if (isLoading === false) {
       return (
         <div className="loader">
@@ -60,9 +64,18 @@ export default class ArticlePage extends Component {
 
   componentDidMount() {
     const { article_id } = this.props;
-    api.getArticleById({ article_id }).then(article => {
-      this.setState({ article });
-      this.setState({ isLoading: true });
-    });
+    api
+      .getArticleById({ article_id })
+      .then(article => {
+        this.setState({ article });
+        this.setState({ isLoading: true });
+      })
+      .catch(({ response }) => {
+        console.log(response);
+        const errStatus = response.status;
+        const errMessage = response.data;
+        const err = { errStatus, errMessage };
+        this.setState({ err });
+      });
   }
 }

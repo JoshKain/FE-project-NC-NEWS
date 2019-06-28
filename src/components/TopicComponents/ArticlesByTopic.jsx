@@ -1,17 +1,21 @@
 import React, { Component } from "react";
 import * as api from "../api";
+import Error from "../ErrorComponent/Error";
 
 import ArticleCards from "../ArticlesComponents/ArticleCards";
 import SortingOrderingBar from "../ArticlesComponents/SortingOrderingBar";
 
 export default class ArticlesByTopic extends Component {
-  state = { articles: [], order: null, sort: null };
+  state = { articles: [], order: null, sort: null, err: null };
   handleSort = (orderBy, sortBy) => {
     this.setState({ order: orderBy, sort: sortBy });
   };
   render() {
-    const { articles } = this.state;
+    const { articles, err } = this.state;
     const { topic } = this.props;
+    if (err) {
+      return <Error err={err} />;
+    }
     return (
       <div>
         <SortingOrderingBar handleSort={this.handleSort} />
@@ -26,10 +30,18 @@ export default class ArticlesByTopic extends Component {
   componentDidMount() {
     if (this.props.topic) {
       const { topic } = this.props;
-      console.log({ topic });
-      api.getArticles({ topic }).then(articles => {
-        this.setState({ articles });
-      });
+
+      api
+        .getArticles({ topic })
+        .then(articles => {
+          this.setState({ articles });
+        })
+        .catch(({ response }) => {
+          const errStatus = response.status;
+          const errMessage = response.data;
+          const err = { errStatus, errMessage };
+          this.setState({ err });
+        });
     }
   }
   componentDidUpdate(prevProps, prevState) {

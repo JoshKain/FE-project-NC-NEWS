@@ -3,20 +3,24 @@ import * as api from "../api";
 import ArticleCards from "./ArticleCards";
 import "./ArticlesList.css";
 import SortingOrderingBar from "./SortingOrderingBar";
+import Error from "../ErrorComponent/Error";
 
 export default class ArticlesList extends Component {
   state = {
     articles: [],
     order: null,
-    sort: null
+    sort: null,
+    err: null
   };
 
   handleSort = (orderBy, sortBy) => {
     this.setState({ order: orderBy, sort: sortBy });
   };
   render() {
-    const { articles } = this.state;
-
+    const { articles, err } = this.state;
+    if (err) {
+      return <Error err={err} />;
+    }
     return (
       <div>
         <SortingOrderingBar handleSort={this.handleSort} />
@@ -29,9 +33,17 @@ export default class ArticlesList extends Component {
     );
   }
   componentDidMount() {
-    api.getArticles({}).then(articles => {
-      this.setState({ articles });
-    });
+    api
+      .getArticles({})
+      .then(articles => {
+        this.setState({ articles });
+      })
+      .catch(({ response }) => {
+        const errStatus = response.status;
+        const errMessage = response.data.msg;
+        const err = { errStatus, errMessage };
+        this.setState({ err });
+      });
   }
 
   componentDidUpdate(prevProps, prevState) {
