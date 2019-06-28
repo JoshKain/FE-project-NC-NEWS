@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../api";
 export default class PostCommentComponent extends Component {
-  state = { body: null };
+  state = { body: "" };
   render() {
     return (
       <div>

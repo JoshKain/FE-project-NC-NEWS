@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import moment from "moment";
 import VoterComponent from "../ArticlesComponents/VoterComponent";
 import "./Comment.css";
-import * as api from "../api";
+
+import DeleteButton from "./DeleteButton";
 moment().format();
 
 export default class CommentCard extends Component {
@@ -17,26 +18,19 @@ export default class CommentCard extends Component {
           Posted by: {author} / {moment(created_at).fromNow()}{" "}
         </p>
         <p>Votes:{votes}</p>
-
         <VoterComponent
           url={this.state.url}
           comment_id={comment_id}
           votes={votes}
         />
-        {author === this.props.username && (
-          <button
-            id="delete-button"
-            onClick={this.handleClick}
-            value={comment_id}
-          >
-            Delete Comment
-          </button>
-        )}
+        <div className="bottom-row">
+          <DeleteButton
+            comment_id={comment_id}
+            author={author}
+            username={this.props.username}
+          />
+        </div>
       </div>
     );
   }
-  handleClick = event => {
-    const { value } = event.target;
-    api.deleteComment({ value }).then(comment => {});
-  };
 }

@@ -10,10 +10,16 @@
 }
 
 #delete-button {
+  display: flex;
+  justify-content: flex-end;
   background: rgb(240, 80, 80);
   padding: 4px 8px;
-  border-radius: 10%;
   cursor: pointer;
+}
+
+.bottom-row {
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .comment-border {
