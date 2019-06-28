@@ -10,16 +10,26 @@ export default class ArticlesList extends Component {
     articles: [],
     order: null,
     sort: null,
-    err: null
+    err: null,
+    isLoading: false
   };
 
   handleSort = (orderBy, sortBy) => {
     this.setState({ order: orderBy, sort: sortBy });
   };
   render() {
-    const { articles, err } = this.state;
+    const { articles, err, isLoading } = this.state;
     if (err) {
       return <Error err={err} />;
+    }
+    if (isLoading === false) {
+      return (
+        <div className="loader">
+          <div className="outer" />
+          <div className="middle" />
+          <div className="inner" />
+        </div>
+      );
     }
     return (
       <div>
@@ -37,6 +47,7 @@ export default class ArticlesList extends Component {
       .getArticles({})
       .then(articles => {
         this.setState({ articles });
+        this.setState({ isLoading: true });
       })
       .catch(({ response }) => {
         const errStatus = response.status;

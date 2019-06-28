@@ -4,12 +4,21 @@ import CommentCard from "./CommentCard";
 import Error from "../ErrorComponent/Error";
 
 export default class CommentsList extends Component {
-  state = { comments: [], commentVotes: null, err: null };
+  state = { comments: [], commentVotes: null, err: null, isLoading: false };
 
   render() {
-    const { comments, err } = this.state;
+    const { comments, err, isLoading } = this.state;
     if (err) {
       return <Error err={err} />;
+    }
+    if (isLoading === false) {
+      return (
+        <div className="loader">
+          <div className="outer" />
+          <div className="middle" />
+          <div className="inner" />
+        </div>
+      );
     }
     return (
       <div>
@@ -32,6 +41,7 @@ export default class CommentsList extends Component {
       .getCommentsForArticle(id)
       .then(comments => {
         this.setState({ comments });
+        this.setState({ isLoading: true });
       })
       .catch(({ response }) => {
         const errStatus = response.status;
