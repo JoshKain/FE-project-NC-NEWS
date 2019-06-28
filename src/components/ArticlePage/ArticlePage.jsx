@@ -4,7 +4,7 @@ import "./ArticlePage.css";
 import moment from "moment";
 import CommentsList from "../CommentList/CommentsList";
 import VoterComponent from "../ArticlesComponents/VoterComponent";
-import PostCommentComponent from "../CommentList/PostCommentComponent";
+
 import Error from "../ErrorComponent/Error";
 
 moment().format();
@@ -49,10 +49,6 @@ export default class ArticlePage extends Component {
           </div>
         </ul>
         <div className="comment-container">
-          <PostCommentComponent
-            article_id={article_id}
-            username={this.props.username}
-          />
           <CommentsList
             id={this.props.article_id}
             username={this.props.username}
