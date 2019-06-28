@@ -17,6 +17,10 @@
   cursor: pointer;
 }
 
+.CommentTag {
+  color: red;
+}
+
 .bottom-row {
   display: flex;
   flex-direction: row-reverse;

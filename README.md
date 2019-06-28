@@ -4,12 +4,17 @@ NC News is a news aggregation and discussion website based on news articles divi
 
 To view the app please follow the instructions below, However a live version can be found hosted on netlify.
 
+```bash
+https://joshs-coding-world.netlify.com/
+```
+
 There is a Guest user on sign in for users that may not want to sign up.
 
-Installation
-Prerequisites:
+#Installation
+/node version
 
-## npm version 6/node version 10
+#Prerequisites:
+npm version 6
 
 # Clone this repository
 
@@ -45,12 +50,17 @@ jessjelly weegembump happyamy2016 grumpy19 tickle122 cooljmessy
 
 Back-End API
 
-The repo for the back-end of this NC News project can be found here on github, which is also hosted on heroku
+The repo for the back-end of this NC News project can be found on the below link to github, which is also hosted on heroku
+
+```bash
+https://github.com/JoshKain/Back-End-NC-news.git
+```
 
 Built with
 React.js
 Axios.js
 Built By
+
 Joshua Kain
 
 # Acknowledgments
