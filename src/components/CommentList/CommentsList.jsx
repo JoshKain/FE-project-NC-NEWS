@@ -3,7 +3,7 @@ import * as api from "../api";
 import CommentCard from "./CommentCard";
 
 export default class CommentsList extends Component {
-  state = { comments: [] };
+  state = { comments: [], commentVotes: null };
 
   render() {
     const { comments } = this.state;

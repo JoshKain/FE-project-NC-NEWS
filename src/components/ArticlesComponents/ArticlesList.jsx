@@ -16,11 +16,11 @@ export default class ArticlesList extends Component {
   };
   render() {
     const { articles } = this.state;
-    console.log(this.state);
+
     return (
       <div>
         <SortingOrderingBar handleSort={this.handleSort} />
-        <div>
+        <div className="slide-fwd-center">
           {articles.map(article => {
             return <ArticleCards key={article.article_id} article={article} />;
           })}
