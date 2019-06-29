@@ -71,3 +71,12 @@ export const deleteComment = ({ value }) => {
     .then(({ data }) => {})
     .catch(err => console.dir(err));
 };
+
+export const getArticlesByUser = ({ username }) => {
+  return request
+    .get(`/articles`, { params: { author: username } })
+    .then(({ data }) => {
+      console.log(data.articles);
+      return data.articles;
+    });
+};

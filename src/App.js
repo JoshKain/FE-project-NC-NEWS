@@ -9,6 +9,7 @@ import ArticlePage from "./components/ArticlePage/ArticlePage";
 import LoginButton from "./components/Login/LoginButton";
 import LoginPage from "./components/Login/LoginPage";
 import React, { Component } from "react";
+import UserPage from "./components/UserComponents/UserPage";
 
 export default class App extends Component {
   state = {
@@ -45,6 +46,7 @@ export default class App extends Component {
               username={this.state.loginUser.username}
             />
             <LoginPage path="/login" handleChangeUser={this.handleChangeUser} />
+            <UserPage path="/user" username={this.state.loginUser} />
           </Router>
         </header>
       </div>

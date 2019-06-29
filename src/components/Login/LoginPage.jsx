@@ -3,6 +3,7 @@ import * as api from "../api";
 import User from "./User";
 import "./Login.css";
 import Error from "../ErrorComponent/Error";
+import { Link } from "@reach/router";
 const uuidv4 = require("uuid/v4");
 
 export default class LoginPage extends Component {
@@ -13,17 +14,19 @@ export default class LoginPage extends Component {
       return <Error err={err} />;
     }
     return (
-      <div className="users-container">
-        {users.map(user => {
-          return (
-            <User
-              user={user}
-              handleChangeUser={this.props.handleChangeUser}
-              key={uuidv4()}
-            />
-          );
-        })}
-      </div>
+      <Link to="/user">
+        <div className="users-container">
+          {users.map(user => {
+            return (
+              <User
+                user={user}
+                handleChangeUser={this.props.handleChangeUser}
+                key={uuidv4()}
+              />
+            );
+          })}
+        </div>
+      </Link>
     );
   }
   componentDidMount() {
