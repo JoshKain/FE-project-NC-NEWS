@@ -114,3 +114,12 @@ export const deleteArticle = ({ value }) => {
     .then(({ data }) => {})
     .catch(err => console.dir(err));
 };
+
+export const postTopic = ({ title, description }) => {
+  return request
+    .post(`/topics`, { slug: title, description })
+    .then(({ data }) => {
+      return data.topic;
+    })
+    .catch(error => console.dir(error));
+};

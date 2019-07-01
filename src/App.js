@@ -32,10 +32,10 @@ export default class App extends Component {
         <header className="App-header">
           <div className="app-container">
             <LoginButton />
+            <Header path="/" />
             <div className="login">
               <p> Logged In As: {username}</p>
             </div>
-            <Header path="/" />
           </div>
           <NavBar />
           <Router>
