@@ -26,6 +26,12 @@
   flex-flow: row wrap;
   align-items: center;
 }
+.avatar {
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
 
 button {
   z-index: 1;

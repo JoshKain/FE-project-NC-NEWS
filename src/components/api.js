@@ -1,5 +1,7 @@
 import axios from "axios";
 
+import keys from "../.config";
+
 const request = axios.create({
   baseURL: "https://joshs-coding-world.herokuapp.com/api/"
 });
@@ -65,7 +67,6 @@ export const postComment = ({ article_id, username, body }) => {
 };
 
 export const deleteComment = ({ value }) => {
-  console.log(value);
   return request
     .delete(`/comments/${value}`)
     .then(({ data }) => {})
@@ -76,7 +77,25 @@ export const getArticlesByUser = ({ username }) => {
   return request
     .get(`/articles`, { params: { author: username } })
     .then(({ data }) => {
-      console.log(data.articles);
       return data.articles;
     });
+};
+
+export const postUser = ({ name, username, response }) => {
+  return request
+    .post(`/users`, { name, username, avatar_url: response })
+    .then(({ data }) => {
+      return data.user;
+    });
+};
+
+export const randomImage = () => {
+  const id = keys.applicationId;
+
+  return axios
+    .get(`https://api.unsplash.com/photos/random/?client_id=${id}`)
+    .then(({ data }) => {
+      return data.urls.small;
+    })
+    .catch(error => console.dir(error));
 };

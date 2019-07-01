@@ -35,7 +35,7 @@ export default class PostCommentComponent extends Component {
   handleSubmit = event => {
     event.preventDefault();
     const { body } = this.state;
-    console.log(body);
+
     const { username, article_id, AddComment } = this.props;
     if (body.length > 1) {
       api.postComment({ article_id, username, body }).then(comment => {

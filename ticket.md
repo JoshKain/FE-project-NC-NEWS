@@ -1,9 +1,5 @@
 Error Handling
 
-Filter by author
-
-user display article
-
 create a new user
 post a new article
 delete articles

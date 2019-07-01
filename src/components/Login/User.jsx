@@ -1,7 +1,7 @@
 import { Button } from "@material-ui/core";
 import React, { Component } from "react";
 import "./Login.css";
-const uuidv5 = require("uuid/v5");
+import { Link } from "@reach/router";
 
 export default class User extends Component {
   render() {
@@ -10,22 +10,20 @@ export default class User extends Component {
     return (
       <div className="each-user">
         <h1>{name}</h1>
-        <img
-          src={avatar_url}
-          alt={uuidv5(`${avatar_url}`, uuidv5.URL)}
-          style={{ width: 200, height: 200 }}
-        />
+        <img src={avatar_url} alt={avatar_url} className="avatar" />
         <p>Username :{username}</p>
-        <Button
-          value={this.props.user}
-          onClick={() => this.props.handleChangeUser(this.props.user)}
-          variant="contained"
-          color="primary"
-          user={this.props.user}
-        >
-          {" "}
-          Login As User
-        </Button>
+        <Link to="/user">
+          <Button
+            value={this.props.user}
+            onClick={() => this.props.handleChangeUser(this.props.user)}
+            variant="contained"
+            color="primary"
+            user={this.props.user}
+          >
+            {" "}
+            Login As User
+          </Button>
+        </Link>
       </div>
     );
   }
