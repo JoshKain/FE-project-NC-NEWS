@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../api";
-import ArticleCards from "../ArticlesComponents/ArticleCards";
+import ArticleCard from "../ArticlesComponents/ArticleCard";
 
 export default class UserPage extends Component {
   state = { articles: [] };
@@ -16,7 +16,7 @@ export default class UserPage extends Component {
           style={{ width: 200, height: 200 }}
         />
         {articles.map(article => {
-          return <ArticleCards key={article.article_id} article={article} />;
+          return <ArticleCard key={article.article_id} article={article} />;
         })}
       </div>
     );

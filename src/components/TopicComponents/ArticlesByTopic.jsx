@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import * as api from "../api";
 import Error from "../ErrorComponent/Error";
 
-import ArticleCards from "../ArticlesComponents/ArticleCards";
+import ArticleCard from "../ArticlesComponents/ArticleCard";
 import SortingOrderingBar from "../ArticlesComponents/SortingOrderingBar";
 
 export default class ArticlesByTopic extends Component {
@@ -21,7 +21,7 @@ export default class ArticlesByTopic extends Component {
         <SortingOrderingBar handleSort={this.handleSort} />
         <h1>{`${topic} articles`}</h1>
         {articles.map(article => {
-          return <ArticleCards article={article} key={article.article_id} />;
+          return <ArticleCard article={article} key={article.article_id} />;
         })}
       </div>
     );

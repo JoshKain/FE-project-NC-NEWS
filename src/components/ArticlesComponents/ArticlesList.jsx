@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../api";
-import ArticleCards from "./ArticleCards";
+import ArticleCard from "./ArticleCard";
 import "./ArticlesList.css";
 import SortingOrderingBar from "./SortingOrderingBar";
 import Error from "../ErrorComponent/Error";
@@ -36,7 +36,7 @@ export default class ArticlesList extends Component {
         <SortingOrderingBar handleSort={this.handleSort} />
         <div className="slide-fwd-center">
           {articles.map(article => {
-            return <ArticleCards key={article.article_id} article={article} />;
+            return <ArticleCard key={article.article_id} article={article} />;
           })}
         </div>
       </div>

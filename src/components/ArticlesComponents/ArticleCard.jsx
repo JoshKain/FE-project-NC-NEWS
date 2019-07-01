@@ -1,20 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "@reach/router";
 import moment from "moment";
 moment().format();
 
-export default class ArticleCards extends Component {
-  render() {
-    const {
-      article_id,
-      title,
-      author,
-      created_at,
-      topic,
-      votes,
-      comment_count
-    } = this.props.article;
-    return (
+export default function ArticleCard(props) {
+  const {
+    article_id,
+    title,
+    author,
+    created_at,
+    topic,
+    votes,
+    comment_count
+  } = props.article;
+  return (
+    <div>
       <Link key={article_id} to={`/articles/${article_id}`}>
         <div className="each-article-container">
           <h4>{title}</h4>
@@ -28,6 +28,6 @@ export default class ArticleCards extends Component {
           </div>
         </div>
       </Link>
-    );
-  }
+    </div>
+  );
 }

@@ -1,6 +1,5 @@
 Error Handling
 
-create a new user
 post a new article
 delete articles
 
