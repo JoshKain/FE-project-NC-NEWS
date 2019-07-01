@@ -6,9 +6,9 @@ const request = axios.create({
   baseURL: "https://joshs-coding-world.herokuapp.com/api/"
 });
 
-export const getArticles = ({ topic, sort, order }) => {
+export const getArticles = ({ topic, sort, order, page }) => {
   return request
-    .get(`/articles`, { params: { topic, sort_by: sort, order } })
+    .get(`/articles`, { params: { topic, sort_by: sort, order, p: page } })
     .then(({ data }) => {
       return data.articles;
     });
