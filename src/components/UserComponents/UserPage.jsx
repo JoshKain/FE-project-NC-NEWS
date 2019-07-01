@@ -7,10 +7,11 @@ import Error from "../ErrorComponent/Error";
 export default class UserPage extends Component {
   state = {
     articles: [],
+    topics: [],
     title: "",
     err: null,
     body: "",
-    topic: "",
+    topic: "coding",
     moreLetters: false
   };
   handleTitle = event => {
@@ -23,7 +24,6 @@ export default class UserPage extends Component {
     this.setState({ topic: event.target.value });
   };
   addArticle = article => {
-    console.log(article);
     const { articles } = this.state;
     const articlesArr = [...articles];
     this.setState({ articles: [article, ...articlesArr] });
@@ -31,10 +31,11 @@ export default class UserPage extends Component {
 
   render() {
     const { username, name, avatar_url } = this.props.username;
-    const { articles, moreLetters, err } = this.state;
+    const { articles, moreLetters, err, topics } = this.state;
     if (err) {
       return <Error err={err} />;
     }
+
     return (
       <div className="each-user">
         <h1>{name}</h1>
@@ -60,13 +61,11 @@ export default class UserPage extends Component {
               onChange={this.handleBody}
               placeholder="Body...."
             />{" "}
-            <input
-              type="text"
-              name="topic"
-              value={this.state.topic}
-              onChange={this.handleTopic}
-              placeholder="Topic"
-            />{" "}
+            <select onChange={this.handleTopic}>
+              {topics.map(topic => {
+                return <option key={topic.slug}>{topic.slug}</option>;
+              })}
+            </select>
           </label>
           <Button
             onClick={this.handleSubmit}
@@ -89,6 +88,9 @@ export default class UserPage extends Component {
   }
   componentDidMount() {
     const { username } = this.props.username;
+    api.getTopics().then(topics => {
+      this.setState({ topics });
+    });
     api.getArticlesByUser({ username }).then(articles => {
       this.setState({ articles });
     });

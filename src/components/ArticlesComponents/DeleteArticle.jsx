@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../api";
+import { navigate } from "@reach/router";
 
 export default class DeleteArticle extends Component {
   render() {
@@ -21,9 +22,9 @@ export default class DeleteArticle extends Component {
 
   handleClick = event => {
     const { value } = event.target;
-    const { deleteArticle } = this.props;
+
     api.deleteArticle({ value }).then(article => {
-      deleteArticle({ value });
+      navigate(`/`);
     });
   };
 }

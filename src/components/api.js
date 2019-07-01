@@ -110,7 +110,7 @@ export const postArticle = ({ username, title, body, topic }) => {
 
 export const deleteArticle = ({ value }) => {
   return request
-    .delete(`/article/${value}`)
+    .delete(`/articles/${value}`)
     .then(({ data }) => {})
     .catch(err => console.dir(err));
 };

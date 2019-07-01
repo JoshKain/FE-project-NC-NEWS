@@ -10,6 +10,7 @@ import LoginButton from "./components/Login/LoginButton";
 import LoginPage from "./components/Login/LoginPage";
 import React, { Component } from "react";
 import UserPage from "./components/UserComponents/UserPage";
+import Error from "./components/ErrorComponent/Error";
 
 export default class App extends Component {
   state = {
@@ -47,6 +48,7 @@ export default class App extends Component {
             />
             <LoginPage path="/login" handleChangeUser={this.handleChangeUser} />
             <UserPage path="/user" username={this.state.loginUser} />
+            <Error default />
           </Router>
         </header>
       </div>
