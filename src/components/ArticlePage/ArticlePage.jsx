@@ -70,8 +70,7 @@ export default class ArticlePage extends Component {
     api
       .getArticleById({ article_id })
       .then(article => {
-        this.setState({ article });
-        this.setState({ isLoading: true });
+        this.setState({ article, isLoading: true });
       })
       .catch(({ response }) => {
         console.log(response);

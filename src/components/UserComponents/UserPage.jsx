@@ -12,7 +12,8 @@ export default class UserPage extends Component {
     err: null,
     body: "",
     topic: "coding",
-    moreLetters: false
+    moreLetters: false,
+    isLoading: false
   };
   handleTitle = event => {
     this.setState({ title: event.target.value });
@@ -31,18 +32,26 @@ export default class UserPage extends Component {
 
   render() {
     const { username, name, avatar_url } = this.props.username;
-    const { articles, moreLetters, err, topics } = this.state;
+    const { articles, moreLetters, err, topics, isLoading } = this.state;
     if (err) {
       return <Error err={err} />;
     }
-
+    if (isLoading === false) {
+      return (
+        <div className="loader">
+          <div className="outer" />
+          <div className="middle" />
+          <div className="inner" />
+        </div>
+      );
+    }
     return (
       <div className="each-user">
         <h1>{name}</h1>
         <img
           src={avatar_url}
           alt={username}
-          style={{ width: 200, height: 200 }}
+          style={{ width: 200, height: 200, borderRadius: 100 }}
         />
         <form>
           <label>
@@ -72,7 +81,7 @@ export default class UserPage extends Component {
             variant="contained"
             color="primary"
           >
-            Submit NewArticle
+            Submit New Article
           </Button>
           {moreLetters && (
             <p className="CommentTag">
@@ -80,19 +89,22 @@ export default class UserPage extends Component {
             </p>
           )}
         </form>
-        {articles.map(article => {
-          return <ArticleCard key={article.article_id} article={article} />;
-        })}
+        {articles &&
+          articles.map(article => {
+            return <ArticleCard key={article.article_id} article={article} />;
+          })}
       </div>
     );
   }
   componentDidMount() {
     const { username } = this.props.username;
     api.getTopics().then(topics => {
-      this.setState({ topics });
+      this.setState({ topics, isLoading: true });
     });
     api.getArticlesByUser({ username }).then(articles => {
-      this.setState({ articles });
+      if (articles.length > 0) {
+        this.setState({ articles });
+      }
     });
   }
   handleSubmit = event => {
@@ -103,15 +115,10 @@ export default class UserPage extends Component {
     if (body.length > 1 || title.length > 1) {
       api.postArticle({ username, body, title, topic }).then(article => {
         this.addArticle(article);
-        this.setState({ moreLetters: false, body: "" });
-        this.setState({ title: "" });
-        this.setState({ topic: "" });
+        this.setState({ moreLetters: false, body: "", title: "" });
       });
     } else {
-      this.setState({ moreLetters: true });
-      this.setState({ body: "" });
-      this.setState({ title: "" });
-      this.setState({ topic: "" });
+      this.setState({ moreLetters: true, body: "", title: "" });
     }
   };
 }

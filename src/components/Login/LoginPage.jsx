@@ -13,7 +13,8 @@ export default class LoginPage extends Component {
     err: null,
     username: "",
     name: "",
-    moreLetters: false
+    moreLetters: false,
+    isLoading: false
   };
   handleName = event => {
     this.setState({ name: event.target.value });
@@ -28,9 +29,18 @@ export default class LoginPage extends Component {
   };
 
   render() {
-    const { users, err, moreLetters } = this.state;
+    const { users, err, moreLetters, isLoading } = this.state;
     if (err) {
       return <Error err={err} />;
+    }
+    if (isLoading === false) {
+      return (
+        <div className="loader">
+          <div className="outer" />
+          <div className="middle" />
+          <div className="inner" />
+        </div>
+      );
     }
     return (
       <div>
@@ -86,7 +96,7 @@ export default class LoginPage extends Component {
     api
       .getUsers()
       .then(users => {
-        this.setState({ users });
+        this.setState({ users, isLoading: true });
       })
       .catch(({ response }) => {
         const errStatus = response.status;

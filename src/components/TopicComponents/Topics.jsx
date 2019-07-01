@@ -9,7 +9,8 @@ export default class NavBarTopics extends Component {
     topics: [],
     err: null,
     description: "",
-    title: ""
+    title: "",
+    isLoading: false
   };
   addTopic = ({ topic }) => {
     const { topics } = this.state;
@@ -23,9 +24,18 @@ export default class NavBarTopics extends Component {
     this.setState({ description: event.target.value });
   };
   render() {
-    const { topics, err } = this.state;
+    const { topics, err, isLoading } = this.state;
     if (err) {
       return <Error err={err} />;
+    }
+    if (isLoading === false) {
+      return (
+        <div className="loader">
+          <div className="outer" />
+          <div className="middle" />
+          <div className="inner" />
+        </div>
+      );
     }
     return (
       <div className="topic-container">
@@ -68,7 +78,7 @@ export default class NavBarTopics extends Component {
       api
         .getTopics()
         .then(topics => {
-          this.setState({ topics });
+          this.setState({ topics, isLoading: true });
         })
         .catch(({ response }) => {
           const errStatus = response.status;
@@ -85,10 +95,20 @@ export default class NavBarTopics extends Component {
     if (description.length > 1 && title.length > 1) {
       api.postTopic({ title, description }).then(topic => {
         this.addTopic({ topic });
-        this.setState({ moreLetters: false, title: "", description: "" });
+        this.setState({
+          moreLetters: false,
+          title: "",
+          description: "",
+          isLoading: true
+        });
       });
     } else {
-      this.setState({ moreLetters: true, title: "", description: "" });
+      this.setState({
+        moreLetters: true,
+        title: "",
+        description: "",
+        isLoading: true
+      });
     }
   };
 }

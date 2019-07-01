@@ -5,11 +5,11 @@ import Error from "../ErrorComponent/Error";
 import PostCommentComponent from "../CommentList/PostCommentComponent";
 
 export default class CommentsList extends Component {
-  state = { comments: [], err: null, isLoading: false, submit: false };
+  state = { comments: [], err: null, isLoading: false };
 
   AddComment = ({ comment }) => {
     const { comments } = this.state;
-    if (comments.length > 1) {
+    if (comments.length > 0) {
       const commentArr = [...comments];
       this.setState({ comments: [comment, ...commentArr] });
     } else this.setState({ comments: [comment] });

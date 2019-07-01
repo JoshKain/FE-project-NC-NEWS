@@ -5,6 +5,7 @@ import { navigate } from "@reach/router";
 export default class DeleteArticle extends Component {
   render() {
     const { author, article_id } = this.props;
+
     return (
       <div>
         {author === this.props.username && (

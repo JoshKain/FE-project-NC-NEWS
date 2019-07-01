@@ -6,15 +6,30 @@ import ArticleCard from "../ArticlesComponents/ArticleCard";
 import SortingOrderingBar from "../ArticlesComponents/SortingOrderingBar";
 
 export default class ArticlesByTopic extends Component {
-  state = { articles: [], order: null, sort: null, err: null };
+  state = {
+    articles: [],
+    order: null,
+    sort: null,
+    err: null,
+    isLoading: false
+  };
   handleSort = (orderBy, sortBy) => {
     this.setState({ order: orderBy, sort: sortBy });
   };
   render() {
-    const { articles, err } = this.state;
+    const { articles, err, isLoading } = this.state;
     const { topic } = this.props;
     if (err) {
       return <Error err={err} />;
+    }
+    if (isLoading === false) {
+      return (
+        <div className="loader">
+          <div className="outer" />
+          <div className="middle" />
+          <div className="inner" />
+        </div>
+      );
     }
     return (
       <div>
@@ -34,7 +49,7 @@ export default class ArticlesByTopic extends Component {
       api
         .getArticles({ topic })
         .then(articles => {
-          this.setState({ articles });
+          this.setState({ articles, isLoading: true });
         })
         .catch(({ response }) => {
           const errStatus = response.status;
