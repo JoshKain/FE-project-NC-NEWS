@@ -4,6 +4,7 @@ import "./ArticlePage.css";
 import moment from "moment";
 import CommentsList from "../CommentList/CommentsList";
 import VoterComponent from "../ArticlesComponents/VoterComponent";
+import DeleteArticle from "../ArticlesComponents/DeleteArticle";
 
 import Error from "../ErrorComponent/Error";
 
@@ -44,9 +45,15 @@ export default class ArticlePage extends Component {
             </p>
           </div>
           <p>{body}</p>
+
           <div className="Voter">
             <VoterComponent votes={votes} article_id={article_id} />
           </div>
+          <DeleteArticle
+            author={author}
+            article_id={article_id}
+            username={this.props.username}
+          />
         </ul>
         <div className="comment-container">
           <CommentsList

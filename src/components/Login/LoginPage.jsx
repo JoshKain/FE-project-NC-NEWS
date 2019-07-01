@@ -13,7 +13,7 @@ export default class LoginPage extends Component {
     err: null,
     username: "",
     name: "",
-    moreLetters: ""
+    moreLetters: false
   };
   handleName = event => {
     this.setState({ name: event.target.value });

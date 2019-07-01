@@ -9,8 +9,10 @@ export default class CommentsList extends Component {
 
   AddComment = ({ comment }) => {
     const { comments } = this.state;
-    const commentArr = [...comments];
-    this.setState({ comments: [comment, ...commentArr] });
+    if (comments.length > 1) {
+      const commentArr = [...comments];
+      this.setState({ comments: [comment, ...commentArr] });
+    } else this.setState({ comments: [comment] });
   };
   deleteComment = ({ value }) => {
     const { comments } = this.state;
@@ -46,16 +48,17 @@ export default class CommentsList extends Component {
           username={this.props.username}
           AddComment={this.AddComment}
         />
-        {comments.map(comment => {
-          return (
-            <CommentCard
-              key={comment.comment_id}
-              comment={comment}
-              username={this.props.username}
-              deleteComment={this.deleteComment}
-            />
-          );
-        })}
+        {comments.length > 1 &&
+          comments.map(comment => {
+            return (
+              <CommentCard
+                key={comment.comment_id}
+                comment={comment}
+                username={this.props.username}
+                deleteComment={this.deleteComment}
+              />
+            );
+          })}
       </div>
     );
   }

@@ -96,6 +96,21 @@ export const randomImage = () => {
     .get(`https://api.unsplash.com/photos/random/?client_id=${id}`)
     .then(({ data }) => {
       return data.urls.small;
+    });
+};
+
+export const postArticle = ({ username, title, body, topic }) => {
+  return request
+    .post(`/articles`, { author: username, title, body, topic })
+    .then(({ data }) => {
+      return data.article;
     })
     .catch(error => console.dir(error));
+};
+
+export const deleteArticle = ({ value }) => {
+  return request
+    .delete(`/article/${value}`)
+    .then(({ data }) => {})
+    .catch(err => console.dir(err));
 };
