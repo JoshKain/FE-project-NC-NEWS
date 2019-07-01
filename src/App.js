@@ -30,14 +30,16 @@ export default class App extends Component {
     return (
       <div className="full-inclosure">
         <header className="App-header">
-          <div className="app-container">
-            <LoginButton />
+          <div className="header-container">
             <Header path="/" />
-            <div className="login">
-              <p> Logged In As: {username}</p>
+            <div>
+              <p className="login"> Logged In As: {username}</p>
+            </div>
+            <div className="routes">
+              <LoginButton className="login-button" />
+              <NavBar />
             </div>
           </div>
-          <NavBar />
           <Router>
             <ArticlesList path="/" />
             <Topics path="/topics" />

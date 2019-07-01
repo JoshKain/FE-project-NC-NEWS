@@ -1,19 +1,27 @@
-.App {
-  border: 2px solid black;
+.full-inclosure {
+  border: 2px;
   padding: 1px;
   border-radius: 20px;
-  background-color: white;
+  background-color: #f9be02;
 }
 
-.app-container {
+.header-container {
   border: 2px solid black;
-  margin: 5px;
-  padding: 5px;
+  padding: 10px;
+  margin: 10px;
   border-radius: 20px;
+  background-color: #eae3ea;
+}
+
+.routes {
+  display: flex;
+  flex-direction: row;
+}
+.navbar {
+  flex-direction: row;
 }
 
 .login {
-  display: flex;
   font-family: "Permanent Marker", cursive;
-  align-items: flex-end;
+  font-size: 20px;
 }

@@ -42,9 +42,15 @@ export default class ArticlesList extends Component {
     return (
       <div>
         <SortingOrderingBar handleSort={this.handleSort} />
-        <div className="slide-fwd-center">
+        <div>
           {articles.map(article => {
-            return <ArticleCard key={article.article_id} article={article} />;
+            return (
+              <ArticleCard
+                className="each-article"
+                key={article.article_id}
+                article={article}
+              />
+            );
           })}
         </div>
         <div className="pagnation">

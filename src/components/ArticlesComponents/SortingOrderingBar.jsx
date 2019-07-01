@@ -3,9 +3,9 @@ import "./ArticlesList.css";
 import { Button } from "@material-ui/core";
 export default class SortingOrderingBar extends Component {
   state = {
-    sortByArr: ["sort_by", "created_at", "comment_count", "votes"],
+    sortByArr: ["Sort By", "created_at", "comment_count", "votes"],
     sortBy: null,
-    orderByArr: ["Order_By", "asc", "desc"],
+    orderByArr: ["Order By", "asc", "desc"],
     orderBy: null
   };
 
@@ -23,22 +23,34 @@ export default class SortingOrderingBar extends Component {
     const { orderByArr, orderBy } = this.state;
     return (
       <div className="sort-bar">
-        <div>
-          Sort Articles By:
-          <select onChange={this.storeUserSort}>
-            {sortByArr.map(sort => {
-              return <option key={sort}>{sort}</option>;
-            })}
-          </select>
+        <div className="sort-drop">
+          <div className="sort-dropContent">
+            Sort Articles By:
+            <select onChange={this.storeUserSort}>
+              {sortByArr.map(sort => {
+                return (
+                  <option className="sort-options" key={sort}>
+                    {sort}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
         </div>
-        <div className="order">
-          {" "}
-          Order Articles:
-          <select onChange={this.storeUserOrder}>
-            {orderByArr.map(order => {
-              return <option key={order}>{order}</option>;
-            })}
-          </select>
+        <div className="sort-drop">
+          <div className="sort-dropContent">
+            {" "}
+            Order Articles:
+            <select onChange={this.storeUserOrder}>
+              {orderByArr.map(order => {
+                return (
+                  <option className="sort-options" key={order}>
+                    {order}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
         </div>
 
         <Button

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "@reach/router";
 import moment from "moment";
+import Typography from "@material-ui/core/Typography";
+import CardActionArea from "@material-ui/core/CardActionArea";
 
 moment().format();
 
@@ -16,19 +18,21 @@ export default function ArticleCard(props) {
   } = props.article;
   return (
     <div>
-      <Link key={article_id} to={`/articles/${article_id}`}>
-        <div className="each-article-container">
-          <h4>{title}</h4>
-          <p> Topic :{topic}</p>
-          <div className="article-card-bottom">
-            <p>
-              Posted by: {author} {moment(created_at).fromNow()}{" "}
-            </p>
-            <p> Votes :{votes}</p>
-            <p>Comment Count: {comment_count}</p>
+      <CardActionArea>
+        <Link key={article_id} to={`/articles/${article_id}`}>
+          <div className="each-article-container">
+            <h4>{title}</h4>
+            <p> Topic :{topic}</p>
+            <div className="article-card-bottom">
+              <Typography>
+                Posted by: {author} {moment(created_at).fromNow()}{" "}
+              </Typography>
+              <p> Votes :{votes}</p>
+              <p>Comment Count: {comment_count}</p>
+            </div>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </CardActionArea>
     </div>
   );
 }

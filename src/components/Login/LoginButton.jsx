@@ -6,7 +6,7 @@ import React from "react";
 
 export default function LoginButton() {
   return (
-    <div className="login-container">
+    <div>
       <Link to="/login">
         <Button variant="contained" color="primary">
           Login
