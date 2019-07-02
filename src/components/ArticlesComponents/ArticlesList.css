@@ -31,6 +31,7 @@
   z-index: 2;
   font-size: 10px;
   font-family: "Permanent Marker", cursive;
+  background-color: #eae3ea;
 }
 .sort-drop:hover .sort-dropContent {
   display: block;
