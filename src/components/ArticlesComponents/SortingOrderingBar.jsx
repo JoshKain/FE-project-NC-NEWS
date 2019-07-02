@@ -25,20 +25,19 @@ export default class SortingOrderingBar extends Component {
     return (
       <div className="sort-bar">
         <div className="sort-order-bar">
-          <div className="sort-drop">
-            <div className="sort-dropContent">
-              Sort Articles By:
-              <select onChange={this.storeUserSort}>
-                {sortByArr.map(sort => {
-                  return (
-                    <option className="sort-options" key={sort}>
-                      {sort}
-                    </option>
-                  );
-                })}
-              </select>
-            </div>
+          <div className="sort-dropContent">
+            Sort Articles By:
+            <select onChange={this.storeUserSort}>
+              {sortByArr.map(sort => {
+                return (
+                  <option className="sort-options" key={sort}>
+                    {sort}
+                  </option>
+                );
+              })}
+            </select>
           </div>
+
           <div>
             <div className="sort-dropContent">
               {" "}
