@@ -35,8 +35,8 @@ const StyledButton = withStyles({
     borderRadius: 20,
     border: 0,
     color: "blue",
-    height: 40,
-    padding: "0 30px",
+    height: 36,
+    padding: "0 20px",
     boxShadow: styledBy("color", {
       blue: "0 3px 5px 2px rgba(33, 203, 243, .3)"
     }),

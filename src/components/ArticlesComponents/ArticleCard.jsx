@@ -26,8 +26,8 @@ export default function ArticleCard(props) {
         >
           <div className="article-card-bottom">
             <h3>{title}</h3>
-            <p> Topic :{topic}</p>
-            <p> Votes :{votes}</p>
+            <p> Topic: {topic}</p>
+            <p> Votes: {votes}</p>
             <p>Comment Count: {comment_count}</p>
             <Typography>
               Posted by: {author} {moment(created_at).fromNow()}{" "}

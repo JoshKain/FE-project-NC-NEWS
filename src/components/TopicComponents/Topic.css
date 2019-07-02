@@ -2,28 +2,51 @@
   text-decoration: none;
   display: flex;
   flex-flow: column;
-  border: 2px solid black;
+
   justify-content: center;
-  margin: 5px;
+  margin: 10px;
   padding: 10px;
   border-radius: 10px;
   cursor: cursor;
   align-self: center;
-  background-color: white;
+}
+
+.topics {
+  color: black;
+  font-family: "Permanent Marker", cursive;
+  font-size: 40px;
+  text-decoration: underline;
+}
+.link-topic {
+  color: black;
+  font-family: "Permanent Marker", cursive;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.topics-form {
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  width: 100%;
+  padding: 10px 16px;
+  margin: 8px 0;
+  border: none;
+  border-bottom: 2px solid red;
 }
 
 .each-topic-container {
-  text-decoration: none;
   display: flex;
   flex-flow: column;
   border: 2px solid black;
   justify-content: center;
-  margin: 5px;
+  margin: 10px;
   padding: 10px;
   border-radius: 10px;
   cursor: cursor;
   align-self: center;
-  background-color: white;
+  background-color: #eae3ea;
   text-align: center;
   align-items: center;
   font-family: "Titillium Web", sans-serif;

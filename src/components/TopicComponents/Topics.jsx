@@ -39,33 +39,45 @@ export default class NavBarTopics extends Component {
     }
     return (
       <div className="topic-container">
-        <h1>Topics</h1>
+        <h1 className="topics">Topics</h1>
+        <h3>New Topic</h3>
         <form onSubmit={this.handleSubmit}>
-          <label>
-            New Topic:
-            <input
-              type="text"
-              name="Title"
-              value={this.state.title}
-              onChange={this.handleTitle}
-              placeholder="Title ...."
-            />{" "}
-            <input
-              type="text"
-              name="Description"
-              value={this.state.description}
-              onChange={this.handleDescription}
-              placeholder="Description...."
-            />{" "}
-          </label>
-          <button>Submit New Topic</button>
+          <div className="topics-form">
+            <label>
+              Description:
+              <input
+                type="text"
+                name="Title"
+                value={this.state.title}
+                onChange={this.handleTitle}
+                placeholder="Title ...."
+                className="input"
+              />{" "}
+            </label>
+            <label>
+              Title:
+              <input
+                type="text"
+                name="Description"
+                value={this.state.description}
+                onChange={this.handleDescription}
+                placeholder="Description...."
+                className="input"
+              />{" "}
+            </label>
+          </div>
         </form>
+        <button>Submit New Topic</button>
         {topics.map(topic => {
           return (
-            <Link key={topic.slug} to={`/topics/${topic.slug}`}>
+            <Link
+              className="link-topic"
+              key={topic.slug}
+              to={`/topics/${topic.slug}`}
+            >
               <div className="each-topic-container">
-                <h2>{topic.slug}</h2>
-                <p>{topic.description}</p>
+                <h2>Topic: {topic.slug}</h2>
+                <p>Description: {topic.description}</p>
               </div>
             </Link>
           );
