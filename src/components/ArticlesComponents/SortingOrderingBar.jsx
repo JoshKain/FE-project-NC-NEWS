@@ -23,36 +23,37 @@ export default class SortingOrderingBar extends Component {
     const { orderByArr, orderBy } = this.state;
     return (
       <div className="sort-bar">
-        <div className="sort-drop">
-          <div className="sort-dropContent">
-            Sort Articles By:
-            <select onChange={this.storeUserSort}>
-              {sortByArr.map(sort => {
-                return (
-                  <option className="sort-options" key={sort}>
-                    {sort}
-                  </option>
-                );
-              })}
-            </select>
+        <div className="sort-order-bar">
+          <div className="sort-drop">
+            <div className="sort-dropContent">
+              Sort Articles By:
+              <select onChange={this.storeUserSort}>
+                {sortByArr.map(sort => {
+                  return (
+                    <option className="sort-options" key={sort}>
+                      {sort}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+          </div>
+          <div>
+            <div className="sort-dropContent">
+              {" "}
+              Order Articles:
+              <select onChange={this.storeUserOrder}>
+                {orderByArr.map(order => {
+                  return (
+                    <option className="sort-options" key={order}>
+                      {order}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
           </div>
         </div>
-        <div className="sort-drop">
-          <div className="sort-dropContent">
-            {" "}
-            Order Articles:
-            <select onChange={this.storeUserOrder}>
-              {orderByArr.map(order => {
-                return (
-                  <option className="sort-options" key={order}>
-                    {order}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
-        </div>
-
         <Button
           variant="contained"
           color="primary"
