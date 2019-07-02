@@ -13,12 +13,16 @@
 .sort-order-bar {
   display: flex;
   flex-direction: row;
+  margin: 5px;
 }
 
 .sort-drop {
   position: static;
 }
-
+.sort-button {
+  display: flex;
+  cursor: pointer;
+}
 .sort-dropContent {
   min-width: 100px;
   border-radius: 20px;
@@ -37,6 +41,8 @@
   font-size: 15px;
 }
 .each-article-container {
+  text-decoration: none;
+  font-size: 20px;
   font-family: "Titillium Web", sans-serif;
   color: black;
   display: flex;
@@ -99,4 +105,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.pagnation {
+  display: flex;
+  justify-content: space-between;
 }

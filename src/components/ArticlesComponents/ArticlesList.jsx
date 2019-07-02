@@ -5,6 +5,7 @@ import "./ArticlesList.css";
 import SortingOrderingBar from "./SortingOrderingBar";
 import Error from "../ErrorComponent/Error";
 import { Button } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
 
 export default class ArticlesList extends Component {
   state = {
@@ -55,17 +56,20 @@ export default class ArticlesList extends Component {
         </div>
         <div className="pagnation">
           <div className="Next">
-            <Button
+            <StyledButton
               onClick={() => this.changePage(1)}
               disabled={articles.length < 10}
             >
               Next
-            </Button>
+            </StyledButton>
           </div>
           <div className="Prev">
-            <Button onClick={() => this.changePage(-1)} disabled={page <= 1}>
+            <StyledButton
+              onClick={() => this.changePage(-1)}
+              disabled={page <= 1}
+            >
               Prev
-            </Button>
+            </StyledButton>
           </div>
         </div>
       </div>
@@ -99,3 +103,21 @@ export default class ArticlesList extends Component {
       });
   }
 }
+
+const styledBy = (property, mapping) => props => mapping[props[property]];
+
+const StyledButton = withStyles({
+  root: {
+    background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
+    borderRadius: 20,
+    border: 0,
+    color: "blue",
+    height: 40,
+    padding: "0 30px",
+    boxShadow: styledBy("color", {
+      blue: "0 3px 5px 2px rgba(33, 203, 243, .3)"
+    })
+  }
+})(({ classes, color, ...other }) => (
+  <Button className={classes.root} {...other} />
+));

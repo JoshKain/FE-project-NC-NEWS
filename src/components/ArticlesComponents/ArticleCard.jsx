@@ -19,17 +19,19 @@ export default function ArticleCard(props) {
   return (
     <div>
       <CardActionArea>
-        <Link key={article_id} to={`/articles/${article_id}`}>
-          <div className="each-article-container">
-            <h4>{title}</h4>
+        <Link
+          className="each-article-container"
+          key={article_id}
+          to={`/articles/${article_id}`}
+        >
+          <div className="article-card-bottom">
+            <h3>{title}</h3>
             <p> Topic :{topic}</p>
-            <div className="article-card-bottom">
-              <Typography>
-                Posted by: {author} {moment(created_at).fromNow()}{" "}
-              </Typography>
-              <p> Votes :{votes}</p>
-              <p>Comment Count: {comment_count}</p>
-            </div>
+            <p> Votes :{votes}</p>
+            <p>Comment Count: {comment_count}</p>
+            <Typography>
+              Posted by: {author} {moment(created_at).fromNow()}{" "}
+            </Typography>
           </div>
         </Link>
       </CardActionArea>
