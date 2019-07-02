@@ -29,8 +29,9 @@
   flex-direction: column;
 }
 .input {
-  width: 97.5%;
-  padding: 10px 16px;
+  display: flex;
+  width: fit-content;
+  padding: 8px 12px;
   margin: 8px 0;
   border: none;
   border-bottom: 2px solid red;
