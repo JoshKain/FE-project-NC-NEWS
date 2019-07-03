@@ -3,6 +3,7 @@ import * as api from "../api";
 import ArticleError from "../ErrorComponent/ArticleError";
 import ArticleCard from "../ArticlesComponents/ArticleCard";
 import SortingOrderingBar from "../ArticlesComponents/SortingOrderingBar";
+import "./Topic.css";
 
 export default class ArticlesByTopic extends Component {
   state = {
@@ -41,7 +42,7 @@ export default class ArticlesByTopic extends Component {
     return (
       <div>
         <SortingOrderingBar handleSort={this.handleSort} />
-        <h1>{`${topic} articles`}</h1>
+        <h1 className="topic-title">{`${topic} articles`}</h1>
         {articles.map(article => {
           return <ArticleCard article={article} key={article.article_id} />;
         })}

@@ -10,7 +10,14 @@
   cursor: cursor;
   align-self: center;
 }
-
+.topic-title {
+  color: black;
+  font-family: "Permanent Marker", cursive;
+  font-size: 40px;
+  text-decoration: underline;
+  margin: 4px;
+  padding: 1px;
+}
 .topics {
   color: black;
   font-family: "Permanent Marker", cursive;
