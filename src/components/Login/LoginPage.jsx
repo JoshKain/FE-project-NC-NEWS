@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import * as api from "../api";
 import User from "./User";
 import "./Login.css";
-import { Button } from "@material-ui/core";
 import Error from "../ErrorComponent/Error";
 
 const uuidv4 = require("uuid/v4");
@@ -43,34 +42,36 @@ export default class LoginPage extends Component {
       );
     }
     return (
-      <div>
-        <div>
+      <div className="user-container">
+        <h3>New User </h3>
+        <div className="user-form">
           <form>
             {" "}
             <label>
-              Add A User:
+              Name:
               <input
                 type="text"
                 name="Name"
                 value={this.state.name}
                 onChange={this.handleName}
                 placeholder="Name..."
+                className="input"
               />{" "}
+            </label>
+            <label>
+              Username:
               <input
                 type="text"
                 name="userName"
                 value={this.state.username}
                 onChange={this.handleUserName}
                 placeholder="Username..."
+                className="input"
               />{" "}
             </label>
-            <Button
-              onClick={this.handleSubmit}
-              variant="contained"
-              color="primary"
-            >
+            <button className="submit-buttons" onClick={this.handleSubmit}>
               Submit NewUser
-            </Button>
+            </button>
             {moreLetters && (
               <p className="CommentTag">
                 UserName or name Space Needs Be Filled in Please
