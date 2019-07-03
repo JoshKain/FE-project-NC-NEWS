@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import keys from "../.config";
+import keys from "../.config.js";
 
 const request = axios.create({
   baseURL: "https://joshs-coding-world.herokuapp.com/api/"
