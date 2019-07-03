@@ -26,7 +26,7 @@ export default class SortingOrderingBar extends Component {
       <div className="sort-bar">
         <div className="sort-order-bar">
           <div className="sort-dropContent">
-            Sort Articles By:
+            Sort Articles:
             <select onChange={this.storeUserSort}>
               {sortByArr.map(sort => {
                 return (

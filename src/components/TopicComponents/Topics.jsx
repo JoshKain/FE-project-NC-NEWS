@@ -3,8 +3,6 @@ import { Link } from "@reach/router";
 import * as api from "../api";
 import "./Topic.css";
 import Error from "../ErrorComponent/Error";
-import { Button } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
 
 export default class NavBarTopics extends Component {
   state = {
@@ -43,10 +41,10 @@ export default class NavBarTopics extends Component {
       <div className="topic-container">
         <h1 className="topics">Topics</h1>
         <h3>New Topic</h3>
-        <form onSubmit={this.handleSubmit}>
-          <div className="topics-form">
-            <label>
-              Description:
+        <div className="topics-form">
+          <form onSubmit={this.handleSubmit}>
+            <label className="labels">
+              Title:
               <input
                 type="text"
                 name="Title"
@@ -56,8 +54,8 @@ export default class NavBarTopics extends Component {
                 className="input"
               />{" "}
             </label>
-            <label>
-              Title:
+            <label className="labels">
+              Description:
               <input
                 type="text"
                 name="Description"
@@ -67,9 +65,9 @@ export default class NavBarTopics extends Component {
                 className="input"
               />{" "}
             </label>
-          </div>
-        </form>
-        <StyledButton>Submit New Topic</StyledButton>
+            <button className="submit-buttons">Submit New Topic</button>
+          </form>
+        </div>
         {topics.map(topic => {
           return (
             <Link
@@ -126,21 +124,3 @@ export default class NavBarTopics extends Component {
     }
   };
 }
-
-const styledBy = (property, mapping) => props => mapping[props[property]];
-
-const StyledButton = withStyles({
-  root: {
-    background: "linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)",
-    borderRadius: 20,
-    border: 0,
-    color: "blue",
-    height: 40,
-    padding: "0 30px",
-    boxShadow: styledBy("color", {
-      blue: "0 3px 5px 2px rgba(33, 203, 243, .3)"
-    })
-  }
-})(({ classes, color, ...other }) => (
-  <Button className={classes.root} {...other} />
-));

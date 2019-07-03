@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import * as api from "../api";
 import Error from "../ErrorComponent/Error";
-
 import ArticleCard from "../ArticlesComponents/ArticleCard";
 import SortingOrderingBar from "../ArticlesComponents/SortingOrderingBar";
+// import UserPage from "../UserComponents/UserPage";
 
 export default class ArticlesByTopic extends Component {
   state = {
@@ -13,12 +13,14 @@ export default class ArticlesByTopic extends Component {
     err: null,
     isLoading: false
   };
+
   handleSort = (orderBy, sortBy) => {
     this.setState({ order: orderBy, sort: sortBy });
   };
   render() {
     const { articles, err, isLoading } = this.state;
     const { topic } = this.props;
+
     if (err) {
       return <Error err={err} />;
     }
@@ -35,9 +37,10 @@ export default class ArticlesByTopic extends Component {
       <div>
         <SortingOrderingBar handleSort={this.handleSort} />
         <h1>{`${topic} articles`}</h1>
-        {articles.map(article => {
-          return <ArticleCard article={article} key={article.article_id} />;
-        })}
+        {articles &&
+          articles.map(article => {
+            return <ArticleCard article={article} key={article.article_id} />;
+          })}
       </div>
     );
   }

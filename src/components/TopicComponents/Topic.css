@@ -24,6 +24,14 @@
   text-decoration: none;
 }
 
+.submit-buttons {
+  color: black;
+  font-family: "Permanent Marker", cursive;
+  font-size: 15px;
+  cursor: cursor;
+  border-radius: 10px;
+  background-color: #eae3ea;
+}
 .topics-form {
   display: flex;
   flex-direction: column;
