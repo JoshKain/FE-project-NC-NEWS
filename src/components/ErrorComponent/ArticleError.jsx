@@ -77,7 +77,6 @@ export default class ArticleError extends Component {
         </form>
         {articles.length > 0 &&
           articles.map(article => {
-            console.log(article);
             return <ArticleCard key={article.article_id} article={article} />;
           })}
       </div>

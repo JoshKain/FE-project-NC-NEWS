@@ -54,9 +54,8 @@ export default class CommentsList extends Component {
         {comments.length > 0 &&
           comments.map(comment => {
             return (
-              <div className="each-comment">
+              <div key={comment.comment_id} className="each-comment">
                 <CommentCard
-                  key={id}
                   comment={comment}
                   username={this.props.username}
                   deleteComment={this.deleteComment}
