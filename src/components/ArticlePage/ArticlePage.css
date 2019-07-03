@@ -4,17 +4,23 @@
   align-items: center;
 }
 
-#container {
+.container {
   display: flex;
+  border: 2px solid black;
+  font-family: "Titillium Web", sans-serif;
+  background-color: #eae3ea;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-content: space-around;
-  margin: 5px;
-  padding: 5px;
-  border: 2px dotted lightblue;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
 }
 
+.article-title {
+  text-decoration: underline;
+}
 .Voter {
   display: flex;
   flex-direction: row;
@@ -27,9 +33,18 @@
   align-items: center;
   margin: 5px;
   padding: 5px;
-  border: 2px dotted lightblue;
 }
 
+.each-comment {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  font-family: "Titillium Web", sans-serif;
+  background-color: #eae3ea;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+}
 .loader {
   position: relative;
 }

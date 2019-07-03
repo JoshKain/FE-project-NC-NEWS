@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import { Button } from "@material-ui/core";
+
 import Error from "../ErrorComponent/Error";
 import * as api from "../api";
 import ArticleCard from "../ArticlesComponents/ArticleCard";
+import SortingOrderingBar from "../ArticlesComponents/SortingOrderingBar";
+import "./Error.css";
 
 export default class ArticleError extends Component {
   state = {
@@ -37,8 +39,9 @@ export default class ArticleError extends Component {
 
     return (
       <div>
-        <h1>{`${topic} articles`}</h1>
-        <form>
+        <SortingOrderingBar />
+        <h1 className="topic">{`${topic} articles`}</h1>
+        <form className="form">
           <label>
             Please Add An Article:
             <input
@@ -47,6 +50,7 @@ export default class ArticleError extends Component {
               value={this.state.title}
               onChange={this.handleTitle}
               placeholder="Title"
+              className="input"
             />{" "}
             <input
               type="text"
@@ -54,15 +58,17 @@ export default class ArticleError extends Component {
               value={this.state.body}
               onChange={this.handleBody}
               placeholder="Body...."
+              className="input"
             />{" "}
           </label>
-          <Button
+          <button
+            className="submit-buttons"
             onClick={this.handleSubmit}
             variant="contained"
             color="primary"
           >
             Submit New Article
-          </Button>
+          </button>
           {moreLetters && (
             <p className="CommentTag">
               Title or Body Space Needs Be Filled in Please

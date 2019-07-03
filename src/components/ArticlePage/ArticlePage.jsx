@@ -37,9 +37,9 @@ export default class ArticlePage extends Component {
     }
     return (
       <div className="single-article-container">
-        <ul id="container">
+        <ul className="container">
           <div>
-            <h3 id="article-title">{title}</h3>
+            <h3 className="article-title">{title}</h3>
             <p>
               Posted by: {author} {moment(created_at).fromNow()}{" "}
             </p>

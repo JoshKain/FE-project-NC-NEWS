@@ -12,13 +12,15 @@ export default class PostCommentComponent extends Component {
           <label>
             Add A Comment:
             <input
+              className="post-comment"
               type="text"
               name="body"
               value={this.state.body}
               onChange={this.handleChange}
+              placeholder="Comment..."
             />{" "}
           </label>
-          <button>Submit Comment</button>
+          <button className="submit-buttons">Submit Comment</button>
           {moreLetters && (
             <p className="CommentTag">
               Comment Space Needs Be Filled in Please

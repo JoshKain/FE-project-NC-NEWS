@@ -2,3 +2,30 @@
   color: red;
   font-family: "Titillium Web", sans-serif;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  display: flex;
+
+  padding: 8px 12px;
+  margin: 8px 0;
+  border: none;
+  border-bottom: 2px solid red;
+}
+.submit-buttons {
+  color: black;
+  font-family: "Permanent Marker", cursive;
+  font-size: 15px;
+  cursor: cursor;
+  border-radius: 10px;
+  background-color: #eae3ea;
+}
+
+.topic {
+  font-family: "Permanent Marker", cursive;
+  font-size: 40px;
+  text-decoration: underline;
+}

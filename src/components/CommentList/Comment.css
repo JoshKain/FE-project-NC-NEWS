@@ -6,7 +6,6 @@
   align-content: space-around;
   margin: 5px;
   padding: 5px;
-  border: 2px dotted lightblue;
 }
 
 #delete-button {
@@ -15,10 +14,17 @@
   background: rgb(240, 80, 80);
   padding: 4px 8px;
   cursor: pointer;
+  padding: 4px;
+  margin: 5px;
 }
 
 .CommentTag {
   color: red;
+}
+
+.comments {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 20px;
 }
 
 .bottom-row {
@@ -31,12 +37,16 @@
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
-
-  margin: 5px;
-  padding: 5px;
-  border: 2px dotted lightblue;
 }
 
+.submit-buttons {
+  color: black;
+  font-family: "Permanent Marker", cursive;
+  font-size: 15px;
+  cursor: cursor;
+  border-radius: 10px;
+  background-color: #eae3ea;
+}
 .loader {
   position: center;
 }
@@ -45,12 +55,21 @@
 .middle,
 .inner {
   border: 3px solid transparent;
-  border-top-color: #ff3c6d;
-  border-right-color: #3c59ff;
+  border-top-color: red;
+  border-right-color: red;
   border-radius: 50%;
   position: absolute;
   top: 50%;
   left: 50%;
+}
+
+.post-comment {
+  display: flex;
+  width: fit-content;
+  padding: 8px 12px;
+  margin: 8px 0;
+  border: none;
+  border-bottom: 2px solid red;
 }
 
 .outer {

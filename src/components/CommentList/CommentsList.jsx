@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../api";
 import CommentCard from "./CommentCard";
 import Error from "../ErrorComponent/Error";
+import "./../ArticlePage/ArticlePage.css";
 import PostCommentComponent from "../CommentList/PostCommentComponent";
 
 export default class CommentsList extends Component {
@@ -42,21 +43,25 @@ export default class CommentsList extends Component {
     }
     return (
       <div>
-        <h3>Comments</h3>
-        <PostCommentComponent
-          article_id={id}
-          username={this.props.username}
-          AddComment={this.AddComment}
-        />
+        <h3 className="comments">Comments</h3>
+        <div>
+          <PostCommentComponent
+            article_id={id}
+            username={this.props.username}
+            AddComment={this.AddComment}
+          />
+        </div>
         {comments.length > 0 &&
           comments.map(comment => {
             return (
-              <CommentCard
-                key={comment.comment_id}
-                comment={comment}
-                username={this.props.username}
-                deleteComment={this.deleteComment}
-              />
+              <div className="each-comment">
+                <CommentCard
+                  key={id}
+                  comment={comment}
+                  username={this.props.username}
+                  deleteComment={this.deleteComment}
+                />
+              </div>
             );
           })}
       </div>
