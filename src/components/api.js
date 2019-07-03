@@ -100,6 +100,7 @@ export const randomImage = () => {
 };
 
 export const postArticle = ({ username, title, body, topic }) => {
+  console.log(username, title, body, topic);
   return request
     .post(`/articles`, { author: username, title, body, topic })
     .then(({ data }) => {

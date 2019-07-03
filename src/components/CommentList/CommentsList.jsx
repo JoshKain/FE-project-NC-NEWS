@@ -48,7 +48,7 @@ export default class CommentsList extends Component {
           username={this.props.username}
           AddComment={this.AddComment}
         />
-        {comments.length > 1 &&
+        {comments.length > 0 &&
           comments.map(comment => {
             return (
               <CommentCard

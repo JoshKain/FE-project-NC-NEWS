@@ -53,6 +53,7 @@ export default class UserPage extends Component {
           alt={username}
           style={{ width: 200, height: 200, borderRadius: 100 }}
         />
+
         <form>
           <label>
             Add An Article:
@@ -89,7 +90,7 @@ export default class UserPage extends Component {
             </p>
           )}
         </form>
-        {articles &&
+        {articles.length >= 1 &&
           articles.map(article => {
             return <ArticleCard key={article.article_id} article={article} />;
           })}
@@ -101,6 +102,7 @@ export default class UserPage extends Component {
     api.getTopics().then(topics => {
       this.setState({ topics, isLoading: true });
     });
+
     api.getArticlesByUser({ username }).then(articles => {
       if (articles.length > 0) {
         this.setState({ articles });

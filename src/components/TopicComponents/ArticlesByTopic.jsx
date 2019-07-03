@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import * as api from "../api";
-import Error from "../ErrorComponent/Error";
+import ArticleError from "../ErrorComponent/ArticleError";
 import ArticleCard from "../ArticlesComponents/ArticleCard";
 import SortingOrderingBar from "../ArticlesComponents/SortingOrderingBar";
-// import UserPage from "../UserComponents/UserPage";
 
 export default class ArticlesByTopic extends Component {
   state = {
@@ -22,7 +21,13 @@ export default class ArticlesByTopic extends Component {
     const { topic } = this.props;
 
     if (err) {
-      return <Error err={err} />;
+      return (
+        <ArticleError
+          err={err}
+          username={this.props.username}
+          topic={this.props.topic}
+        />
+      );
     }
     if (isLoading === false) {
       return (
@@ -37,10 +42,9 @@ export default class ArticlesByTopic extends Component {
       <div>
         <SortingOrderingBar handleSort={this.handleSort} />
         <h1>{`${topic} articles`}</h1>
-        {articles &&
-          articles.map(article => {
-            return <ArticleCard article={article} key={article.article_id} />;
-          })}
+        {articles.map(article => {
+          return <ArticleCard article={article} key={article.article_id} />;
+        })}
       </div>
     );
   }
