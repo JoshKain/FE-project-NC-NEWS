@@ -47,7 +47,7 @@ To stop running the server use ctrl + c
 
 # Using northcoders-news
 
-Once running you will be able to filter articles by Time created, comment count votes, in ascending or descending order. YOu may move around using the navigation bar to Topics and move into Login, and then entering any article by clicking on the article's card to open up it's own page. Once there, you will be able to vote, post a comment and vote on other users comments and delete a specific users articles and comments. To log in simply click on the login button and choose which user you would like to be logged in as.
+Once running you will be able to filter articles by Time created, comment count votes, in ascending or descending order. You may move around using the navigation bar to Topics and into Login. Going into Topics you will find a list of all the topics and can enter a new topic if wanted where you can add a new article buy clicking on that specific topic and see all the current articles available to that article. By entering any article by clicking on the article's card will open up it's own page. Once there, you will be able to vote, post a comment and vote on other users comments and delete a specific users articles and comments. To log in simply click on the login button and choose which user you would like to be logged in as.
 
 Back-End API
 
