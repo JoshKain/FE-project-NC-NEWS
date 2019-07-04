@@ -18,6 +18,15 @@
   padding: 4px;
 }
 
+.article {
+  display: flex;
+  margin: 4px;
+  padding: 4px;
+  font-family: "Permanent Marker", cursive;
+  font-size: 30px;
+  text-decoration: underline;
+}
+
 .sort-dropContent {
   display: flex;
   min-width: 70px;

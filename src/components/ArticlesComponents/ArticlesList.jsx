@@ -61,6 +61,7 @@ export default class ArticlesList extends Component {
             </StyledButton>
           </div>
         </div>
+        <h3 className="article">Articles</h3>
         <div>
           {articles.map(article => {
             return (
