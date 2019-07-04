@@ -49,11 +49,7 @@ export default class UserPage extends Component {
       <div className="topic-container">
         <div className="user">
           <h1>{name}</h1>
-          <img
-            src={avatar_url}
-            alt={username}
-            style={{ width: 200, height: 200, borderRadius: 100 }}
-          />
+          <img src={avatar_url} alt={username} className="image" />
         </div>
         <h3>Add An Article:</h3>
         <div className="topics-form">

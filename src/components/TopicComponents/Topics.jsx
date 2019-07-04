@@ -10,7 +10,8 @@ export default class NavBarTopics extends Component {
     err: null,
     description: "",
     title: "",
-    isLoading: false
+    isLoading: false,
+    moreLetters: false
   };
   addTopic = ({ topic }) => {
     const { topics } = this.state;
@@ -24,7 +25,7 @@ export default class NavBarTopics extends Component {
     this.setState({ description: event.target.value });
   };
   render() {
-    const { topics, err, isLoading } = this.state;
+    const { topics, err, isLoading, moreLetters } = this.state;
     if (err) {
       return <Error err={err} />;
     }
@@ -65,9 +66,16 @@ export default class NavBarTopics extends Component {
                 className="input"
               />{" "}
             </label>
+
             <button className="submit-buttons">Submit New Topic</button>
+            {moreLetters && (
+              <p className="CommentTag">
+                Title or Body Space Needs Be Filled in Please
+              </p>
+            )}
           </form>
         </div>
+
         {topics.map(topic => {
           return (
             <Link
@@ -104,7 +112,7 @@ export default class NavBarTopics extends Component {
     event.preventDefault();
     const { title, description } = this.state;
 
-    if (description.length > 1 && title.length > 1) {
+    if (description.length > 0 && title.length > 0) {
       api.postTopic({ title, description }).then(topic => {
         this.addTopic({ topic });
         this.setState({

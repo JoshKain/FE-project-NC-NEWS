@@ -6,6 +6,10 @@
 .form {
   display: flex;
   flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
 }
 .input {
   display: flex;
@@ -14,6 +18,10 @@
   margin: 8px 0;
   border: none;
   border-bottom: 2px solid red;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
 }
 .submit-buttons {
   color: black;
@@ -22,6 +30,10 @@
   cursor: cursor;
   border-radius: 30px;
   background-color: #eae3ea;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
 }
 
 .topic {

@@ -43,7 +43,18 @@ export default class ArticlesList extends Component {
     return (
       <div>
         <SortingOrderingBar handleSort={this.handleSort} />
-        <div className="pagnation">
+        <div className="pagnation" />
+        <h3 className="article">Articles</h3>
+        <div>
+          {articles.map(article => {
+            return (
+              <ArticleCard
+                className="each-article"
+                key={article.article_id}
+                article={article}
+              />
+            );
+          })}
           <div className="Prev">
             <StyledButton
               onClick={() => this.changePage(-1)}
@@ -60,18 +71,6 @@ export default class ArticlesList extends Component {
               Next
             </StyledButton>
           </div>
-        </div>
-        <h3 className="article">Articles</h3>
-        <div>
-          {articles.map(article => {
-            return (
-              <ArticleCard
-                className="each-article"
-                key={article.article_id}
-                article={article}
-              />
-            );
-          })}
         </div>
       </div>
     );

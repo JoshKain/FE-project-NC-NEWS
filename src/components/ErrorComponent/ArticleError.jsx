@@ -88,7 +88,7 @@ export default class ArticleError extends Component {
     const { body, title } = this.state;
     const { username, topic } = this.props;
 
-    if (body.length > 1 || title.length > 1) {
+    if (body.length > 1 && title.length > 1) {
       api.postArticle({ username, body, title, topic }).then(article => {
         this.addArticle(article);
         this.setState({ moreLetters: false, body: "", title: "" });
