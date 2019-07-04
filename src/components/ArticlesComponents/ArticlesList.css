@@ -12,8 +12,10 @@
 
 .sort-order-bar {
   display: flex;
-  flex-direction: row;
-  padding: 1px;
+  flex-direction: column;
+  align-self: center;
+  margin: 4px;
+  padding: 4px;
 }
 
 .sort-dropContent {
