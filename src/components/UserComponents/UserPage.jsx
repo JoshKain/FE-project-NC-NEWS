@@ -124,7 +124,7 @@ export default class UserPage extends Component {
     const { body, title, topic } = this.state;
     const { username } = this.props.username;
 
-    if (body.length > 1 || title.length > 1) {
+    if (body.length > 1 && title.length > 1) {
       api.postArticle({ username, body, title, topic }).then(article => {
         this.addArticle(article);
         this.setState({ moreLetters: false, body: "", title: "" });
