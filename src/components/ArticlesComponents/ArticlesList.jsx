@@ -43,7 +43,6 @@ export default class ArticlesList extends Component {
     return (
       <div>
         <SortingOrderingBar handleSort={this.handleSort} />
-        <div className="pagnation" />
         <h3 className="article">Articles</h3>
         <div>
           {articles.map(article => {
@@ -55,21 +54,23 @@ export default class ArticlesList extends Component {
               />
             );
           })}
-          <div className="Prev">
-            <StyledButton
-              onClick={() => this.changePage(-1)}
-              disabled={page <= 1}
-            >
-              Prev
-            </StyledButton>
-          </div>
-          <div className="Next">
-            <StyledButton
-              onClick={() => this.changePage(1)}
-              disabled={articles.length < 10}
-            >
-              Next
-            </StyledButton>
+          <div className="pagnation">
+            <div className="Prev">
+              <StyledButton
+                onClick={() => this.changePage(-1)}
+                disabled={page <= 1}
+              >
+                Prev
+              </StyledButton>
+            </div>
+            <div className="Next">
+              <StyledButton
+                onClick={() => this.changePage(1)}
+                disabled={articles.length < 10}
+              >
+                Next
+              </StyledButton>
+            </div>
           </div>
         </div>
       </div>

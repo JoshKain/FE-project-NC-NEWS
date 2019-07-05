@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import * as api from "../api";
-
 import "./Comment.css";
+
 export default class PostCommentComponent extends Component {
   state = { body: "", moreLetters: false };
   render() {
     const { moreLetters } = this.state;
     return (
-      <div>
+      <div className="Post-comment">
         <form onSubmit={this.handleSubmit}>
           <label>
             Add A Comment:
